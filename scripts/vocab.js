@@ -149,6 +149,10 @@ Vue.createApp({
         restart() {
             this.index = 0
             this.finish = false
+        },
+        gotoSection(section) {
+            this.section = section
+            this.restart()
         }
     },
     watch: {

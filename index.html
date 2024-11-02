@@ -202,10 +202,10 @@
       <div class="fs-4 text-center fw-light text-secondary" id="py-editable-27">为考试学习打好基础。每个考试都有单独的词汇库！</div>
       <div id="vocabulary">
         <div class="d-flex justify-content-evenly margin-block">
-          <button type="button" :class="`btn btn-lg btn-${section === 0 ? '' : 'outline-'}primary`" @click="section = 0" id="py-editable-28">学习</button>
-          <button type="button" :class="`btn btn-lg btn-${section === 1 ? '' : 'outline-'}danger`" @click="section = 1" id="py-editable-29">发音</button>
-          <button type="button" :class="`btn btn-lg btn-${section === 2 ? '' : 'outline-'}success`" @click="section = 2" id="py-editable-30">词义</button>
-          <button type="button" :class="`btn btn-lg btn-${section === 3 ? '' : 'outline-'}warning`" @click="section = 3" id="py-editable-31">拼写</button>
+          <button type="button" :class="`btn btn-lg btn-${section === 0 ? '' : 'outline-'}primary`" @click="gotoSection(0)" id="py-editable-28">学习</button>
+          <button type="button" :class="`btn btn-lg btn-${section === 1 ? '' : 'outline-'}danger`" @click="gotoSection(1)" id="py-editable-29">发音</button>
+          <button type="button" :class="`btn btn-lg btn-${section === 2 ? '' : 'outline-'}success`" @click="gotoSection(2)" id="py-editable-30">词义</button>
+          <button type="button" :class="`btn btn-lg btn-${section === 3 ? '' : 'outline-'}warning`" @click="gotoSection(3)" id="py-editable-31">拼写</button>
         </div>
         <section v-if="section === 0" class="vocab-sub-sections">
           <h1 class="display-6 fw-light">{{vocabs[index].word}}</h1>
