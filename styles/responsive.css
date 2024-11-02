@@ -1,0 +1,126 @@
+@media (max-width: 992px) {
+    body {
+        padding: 0;
+    }
+
+    body header {
+        display: none;
+    }
+
+    #banner {
+        height: 100px;
+    }
+
+    #banner-container {
+        display: none;
+    }
+
+    #banner-text-mobile {
+        display: block;
+    }
+
+    .downloads-title {
+        display: none;
+    }
+
+    #downloads-mobile {
+        display: block;
+    }
+
+    .margin-section {
+        margin-top: 50px;
+    }
+
+    .margin-block {
+        margin-top: 25px;
+    }
+
+    #classroom {
+        height:fit-content;
+        background: none;
+        display: block;
+        padding: 0;
+        text-align: center;
+    }
+
+    .course-titles {
+        font-size: 1.25em;
+    }
+
+    .left-and-right {
+        display: block;
+    }
+
+    #book-cover-nav-container {
+        display: none;
+    }
+
+    #book-cover-container {
+        width: unset;
+        display: block;
+        max-width: 350px;
+        text-align: center;
+        margin: auto;
+    }
+
+    #book-covers {
+        width: unset;
+        
+    }
+
+    #exam {
+        display: none;
+    }
+
+    #vocabulary {
+        display: none;
+    }
+
+    #prog-bar {
+        font-size: 0.6em;
+    }
+
+    .service-icon-container {
+        justify-content: space-around;
+    }
+
+    .service-icon {
+        width: 100px;
+        height: 115px;
+    }
+
+    .service-name {
+        font-size: 0.5em;
+    }
+
+    #sitemap {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+}
+
+@media (max-width: 1400px) {
+    #classroom {
+        padding-left: 15px;
+    }
+}
+
+@media (max-width: 1200px) {
+    #classroom {
+        padding-left: 10px;
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 575px) {
+    #footer-content {
+        display: block;
+        padding-top: 10px;
+    }
+    footer section {
+        width: unset;
+    }
+}

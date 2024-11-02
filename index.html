@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flybull</title>
+    <link rel="icon" href="./assets/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <script src="./scripts/main.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div id="header-container" class="container">
+        <img draggable="false" id="logo-img" src="./assets/logo_h.gif" alt="logo">
+        <nav>
+          <button type="button" class="nav-btn" onclick="toHome()">主页</button>
+          <button type="button" class="nav-btn news-elements" onclick="location.href='#news-anchor'">动态</button>
+          <button type="button" class="nav-btn" onclick="location.href='#course-anchor'">课程</button>
+          <button type="button" class="nav-btn" onclick="location.href='#book-anchor'">教材</button>
+          <button type="button" class="nav-btn" onclick="location.href='#exam-anchor'">试题</button>
+          <button type="button" class="nav-btn" onclick="location.href='#vocabulary-anchor'">词汇</button>
+          <button type="button" class="nav-btn" onclick="location.href='#service-anchor'">服务</button>
+        </nav>
+        <div id="header-right-container">
+          <!-- <button type="button" class="btn btn-light">中 / EN</button> -->
+          <button type="button" class="btn btn-warning" onclick="location.href='#downloads-anchor'">下载</button>
+        </div>
+      </div>
+    </header>
+
+    <section id="banner">
+      <div id="banner-container" class="container">
+        <section id="banner-left" class="banner-sections">
+          <div id="banner-text">
+            <h2 class="display-6" id="py-editable-1">为梦想插翅，为生涯护航!</h2>
+            <br />
+            <p id="py-editable-2">Flybull飞牛是一个为加利福尼亚州承包商执照考试（CSLB）量身定制的专业学习平台。我们提供中英双语教学，帮助学员更好地掌握考试所需的专业知识。无论你是从零开始学习技术，还是需要提高英语词汇，飞牛都能为你提供系统的指导。通过我们的课程，你可以循序渐进地掌握必要的技能，轻松应对CSLB执照考试，迈向职业成功！</p>
+            <br />
+            <!-- <button type="button" class="btn btn-dark btn-lg">Download</button> -->
+          </div>
+          <span id="downloads-anchor" />
+        </section>
+      </div>
+    </section>
+
+    <div id="banner-text-mobile">
+      <h2 class="display-6" id="py-editable-1a">为梦想插翅，为生涯护航!</h2>
+      <br />
+      <p id="py-editable-2a">Flybull飞牛是一个为加利福尼亚州承包商执照考试（CSLB）量身定制的专业学习平台。我们提供中英双语教学，帮助学员更好地掌握考试所需的专业知识。无论你是从零开始学习技术，还是需要提高英语词汇，飞牛都能为你提供系统的指导。通过我们的课程，你可以循序渐进地掌握必要的技能，轻松应对CSLB执照考试，迈向职业成功！</p>
+      <br />
+      <!-- <button type="button" class="btn btn-dark btn-lg">Download</button> -->
+    </div>
+
+    <section id="downloads-section" class="container margin-block">
+      <h1 class="display-6 text-center fw-light"  id="py-editable-3">下载客户端</h1>
+      <div class="fs-4 text-center fw-light text-secondary" id="py-editable-4">多功能一体式在线学习平台。主讲加州各类承包商执照考试!</div>
+      <div class="downloads-title">
+        <div class="platform-download">
+          <i class="platform-icon bi bi-microsoft"></i>
+          <div><button type="button" class="btn btn-link">下载</button></div>
+          <!-- <div><button type="button" class="btn btn-link disabled">Microsoft Store</button></div> -->
+        </div>
+        <div class="platform-download">
+          <i class="platform-icon bi bi-apple"></i>
+          <div><button type="button" class="btn btn-link">下载</button></div>
+          <!-- <div><button type="button" class="btn btn-link">App Store</button></div> -->
+        </div>
+        <!-- <div class="platform-download">
+          <i class="platform-icon bi bi-android2"></i>
+          <div><button type="button" class="btn btn-link">Join Testing</button></div>
+          <div><button type="button" class="btn btn-link disabled">Play Store</button></div>
+        </div> -->
+      </div>
+      <div id="downloads-mobile" class="mobile-only">使用电脑访问此网站来下载客户端</div>
+      <span id="news-anchor" />
+    </section>
+
+    <section id="news-section" class="container margin-section news-elements">
+      <h1 class="display-6 text-center fw-light"  id="py-editable-3">最新动态</h1>
+      <div id="news" class="margin-row">
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action" v-for="n in news" :href="`./news.html?id=${n.id}`"><span class="news-title d-inline-block text-truncate">{{ n.title }}</span><span class="float-end news-date">{{n.date}}</span></a>
+          <a class="list-group-item list-group-item-action" href="./news.html"><span class="news-title d-inline-block text-truncate">查看更多...</span></a>
+        </div>
+      </div>
+      <span id="course-anchor" />
+    </section>
+
+    <section id="course-section" class="margin-section container">
+      <h1 class="display-6 text-center fw-light" id="py-editable-8">云课堂</h1>
+      <div class="fs-4 text-center fw-light text-secondary" id="py-editable-9">中文教学，从新手到专家！另有施工现场讲解。随时随地开始学习！</div>
+      <div id="classroom" class="margin-block">
+        <div>
+          <div class="course-titles" id="py-editable-10a">法律与商业（必修课）</div>
+          <div class="course-titles" id="py-editable-10b">C-10 电工</div>
+          <div class="course-titles" id="py-editable-10c">C-20 暖通空调</div>
+          <div class="course-titles" id="py-editable-10d" style="color: grey;">C-36 水管工（即将推出）</div>
+          <div class="course-titles" id="py-editable-10e" style="color: grey;">B类普通承包商（即将推出）</div>
+          <div class="course-titles" id="py-editable-10f" style="color: grey;">A类综合工程（即将推出）</div>
+        </div>
+        <div>
+          <div class="course-titles" id="py-editable-10g" style="color: grey;">C-46太阳能（即将推出）</div>
+          <div class="course-titles" id="py-editable-10h" style="color: grey;">C-33油漆（即将推出）</div>
+          <div class="course-titles" id="py-editable-10i">健康与安全加强班（选修课）</div> 
+          <div class="course-titles" id="py-editable-10j">测量与计算（选修课）</div>
+        </div>
+        <div>
+          <img draggable="false" alt="class" src="./assets/class1.png" width="230px" />
+          <br>
+          <img draggable="false" alt="class" src="./assets/class2.png" width="230px" />
+        </div>
+      </div>
+      <div class="margin-block fs-5">
+        <span id="book-anchor" />
+      </div>
+    </section>
+
+    <section id="book-section" class="margin-section container">
+      <h1 class="display-6 text-center fw-light" id="py-editable-11">独家教材</h1>
+      <div class="fs-4 text-center fw-light text-secondary" id="py-editable-12">中英双语独家自编教材。专业知识，随时翻阅！</div>
+      <div id="book" class="left-and-right">
+        <div id="book-cover-nav-container" class="sub-container">
+          <img class="book-cover-nav-img" v-for="(bookCover, index) in bookCovers" :alt="bookCover" :src="`./assets/${bookCover}`" @click="currentIndex = index" />
+        </div>
+        <div id="book-cover-container" class="sub-container">
+          <div id="book-covers" v-if="bookCovers !== null">
+            <img draggable="false" :src="`./assets/${bookCovers[currentIndex]}`" class="img-thumbnail" alt="book cover">
+          </div>
+          <div class="btn-group margin-row"  v-if="bookCovers !== null" role="group" aria-label="Basic outlined example">
+            <button type="button" :class="`btn ${currentIndex === 0 ? 'btn-outline-secondary' : 'btn-outline-warning'}`" :disabled="currentIndex === 0" @click="previous()">&lt;</button>
+            <button type="button" class="btn btn-outline-secondary disabled">-</button>
+            <button type="button" :class="`btn ${currentIndex === bookCovers.length - 1 ? 'btn-outline-secondary' : 'btn-outline-warning'}`" :disabled="currentIndex === bookCovers.length - 1" @click="next()">&gt;</button>
+          </div>
+          <span id="exam-anchor" />
+        </div>
+      </div>
+    </section>
+
+    <section id="exam-section" class="container margin-section">
+      <h1 class="display-6 text-center fw-light" id="py-editable-14">试题学习</h1>
+      <div class="fs-4 text-center fw-light text-secondary" id="py-editable-15">双语题库，随时切换，每个题库都有上百道题！学习模式和考试模式双重巩固记忆！</div>
+      <div id="exam" class="exam-intro margin-block">
+        <div class="exam-container">
+          <div class="question-nums" >
+            <div :class="`question-num-box ${index === currentIndex ? 'question-current-box ' : ''}`" v-for="(question, index) in questions" :key="index" @click="goToQuestion(index)">
+              <div v-if="flaggedQuestions.includes(index)" :class="`question-num-inner ${getQuestionNumIndicator(index)}`"><i class="bi bi-bookmark-fill text-warning"></i></div>
+              <div v-else :class="`question-num-inner ${getQuestionNumIndicator(index)}`">{{index+1}}</div>
+            </div>
+          </div>
+          <div class="question-panel">
+            <div class="fs-5">{{`${ currentIndex+1 }. ${ translate ? translations[currentIndex].question : questions[currentIndex].question }` }}</div>
+            <div v-if="questions[currentIndex].image">
+              <img draggable="false" width="75%" alt="question image" :src="`./assets/${questions[currentIndex].image}.png`">
+            </div>
+            <div class="question-option form-check fs-5" v-for="(option, index) in questions[currentIndex].options" :key="index">
+              <input placeholder="_" class="form-check-input" type="radio" name="flexRadioDefault" :id="`flexRadio${index}`" :checked="selectedOptions[currentIndex] === index" @click="selectOption(index)">
+              <label :class="`form-check-label ${ getAnswerIndicator(index) }`" :for="`flexRadio${index}`">
+                {{ translate ? translations[currentIndex].options[index] : option }}
+              </label>
+            </div>
+          </div>
+          <div class="question-btns text-center">
+            <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle Vertical button group">
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" @click="changeMode()" :checked="studyMode">
+              <label class="btn btn-outline-warning" for="btnradio1" id="py-editable-16">学习模式</label>
+
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" @click="changeMode()" :checked="!studyMode">
+              <label class="btn btn-outline-warning" for="btnradio2" id="py-editable-17">考试模式</label>
+            </div>
+            <div class="margin-row" v-if="studyMode">
+              <div class="text-success" id="py-editable-18">绿色 = 正确答案</div>
+              <div class="text-danger" id="py-editable-19">红色 = 错误答案</div>
+            </div>
+            <div class="margin-row" v-else>
+              <div class="text-primary" id="py-editable-20">答题结束后显示<br>正确答案</div>
+            </div>
+            <button type="button" :class="`btn margin-row ${ translate ? 'btn-primary' : 'btn-outline-primary' }`" @click="showTranslations()" id="py-editable-21">翻译</button>
+            <br>
+            <button type="button" :class="`btn margin-row ${ flaggedQuestions.includes(currentIndex) ? 'btn-danger' : 'btn-outline-danger' }`" @click="flag()" id="py-editable-22">标记</button>
+          </div>
+        </div>
+        <div class="question-nav-container">
+          <div class="question-nav">
+            <button type="button" :class="`btn ${currentIndex === 0 ? 'btn-outline-secondary' : 'btn-outline-warning'}`" @click="back()" :disabled="currentIndex === 0">上一题</button>
+            <button type="button" :class="`btn ${studyMode && currentIndex === questions.length - 1 ? 'btn-outline-secondary' : 'btn-outline-warning'}`" :disabled="studyMode && currentIndex === questions.length - 1" @click="next()">下一题</button>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-only text-center">用电脑访问此网站可以试用本功能</div>
+      <img class="mobile-only" alt="Exams" src="./assets/examshot.png" width="100%">
+      <div class="exam-intro margin-block fs-5">
+        <span id="vocabulary-anchor" />
+      </div>
+    </section>
+
+    <section id="vocabulary-section" class="container margin-section">
+      <h1 class="display-6 text-center fw-light" id="py-editable-26">词汇学习</h1>
+      <div class="fs-4 text-center fw-light text-secondary" id="py-editable-27">为考试学习打好基础。每个考试都有单独的词汇库！</div>
+      <div id="vocabulary">
+        <div class="d-flex justify-content-evenly margin-block">
+          <button type="button" :class="`btn btn-lg btn-${section === 0 ? '' : 'outline-'}primary`" @click="section = 0" id="py-editable-28">学习</button>
+          <button type="button" :class="`btn btn-lg btn-${section === 1 ? '' : 'outline-'}danger`" @click="section = 1" id="py-editable-29">发音</button>
+          <button type="button" :class="`btn btn-lg btn-${section === 2 ? '' : 'outline-'}success`" @click="section = 2" id="py-editable-30">词义</button>
+          <button type="button" :class="`btn btn-lg btn-${section === 3 ? '' : 'outline-'}warning`" @click="section = 3" id="py-editable-31">拼写</button>
+        </div>
+        <section v-if="section === 0" class="vocab-sub-sections">
+          <h1 class="display-6 fw-light">{{vocabs[index].word}}</h1>
+          <button type="button" class="btn btn-light" @click="playsound"><i class="bi bi-volume-up-fill"></i></button>
+          <h1 class="fw-light vocab-cn">{{vocabs[index].cn}}</h1>
+          <div class="vocab-example-container margin-block">
+            <div class="vocab-example">
+              <div v-html="vocabs[index].question" class="fs-5"></div>
+              <div v-html="vocabs[index].questionCn" class="fs-5"></div>
+              <div v-html="vocabs[index].answer" class="fs-5 margin-row"></div>
+              <div v-html="vocabs[index].answerCn" class="fs-5"></div>
+            </div>
+            <div class="question-nav-container margin-block">
+              <div class="question-nav">
+                <button type="button" :class="`btn btn-outline-${index === 0 ? 'secondary' : 'warning'}`" @click="back()" :disabled="index === 0">上一个</button>
+                <button type="button" :class="`btn btn-outline-${index === vocabs.length - 1 ? 'secondary' : 'warning'}`" @click="next()" :disabled="index === vocabs.length - 1">下一个</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section v-if="section === 1 || section === 2" class="vocab-sub-sections">
+          <template v-if="!this.finish">
+            <h1 v-if="this.section === 2" class="display-6 fw-light">{{vocabs[index].word}}</h1>
+            <button type="button" class="btn btn-light" @click="playsound"><i class="bi bi-volume-up-fill"></i></button>
+            <!-- <h1 v-if="this.section === 1" class="fw-light vocab-cn margin-row">{{vocabs[index].cn}}</h1> -->
+            <div class="vocab-options margin-block">
+              <div v-for="(opt, i) in options" @click="optClick(i)" class="vocab-option" :style="!opt.highlight ? '' : opt.correct ? 'background-color: rgb(150, 255, 150)' : 'background-color: rgb(255, 150, 150)'">
+                {{`${i + 1}. ${section === 1 ? `${opt.text} - ${opt.cn}` : opt.cn}`}}
+              </div>
+            </div>
+          </template>
+          <template v-else>
+            <button type="button" class="btn btn-primary margin-block" @click="restart()">重新开始</button>
+          </template>
+        </section>
+        <section v-if="section === 3" class="vocab-sub-sections">
+          <template v-if="!this.finish">
+            <button type="button" class="btn btn-light" @click="playsound"><i class="bi bi-volume-up-fill"></i></button>
+            <h1 class="fw-light vocab-cn margin-row">{{vocabs[index].cn}}</h1>
+            <div class="margin-block vocab-options">
+              <input type="text" :class="`form-control vocab-input ${ inputError ? 'is-invalid' : ''} ${ inputPass ? 'is-valid' : '' }`" v-model="input">
+              <div class="input-hin-container">
+                <div class="input-hint" v-if="inputError">{{inputHint}}</div>
+              </div>
+            </div>
+          </template>
+          <template v-else>
+            <button type="button" class="btn btn-primary margin-block" @click="restart()">重新开始</button>
+          </template>
+        </section>
+      </div>
+      <div class="mobile-only text-center">用电脑访问此网站可以试用本功能</div>
+      <img class="mobile-only" alt="Exams" src="./assets/vocabshot.png" width="100%">
+      <span id="service-anchor" />
+    </section>
+
+    <section id="progress-section" class="container margin-section">
+      <h1 class="display-6 text-center fw-light" id="py-editable-5">学习进度报告</h1>
+      <div class="fs-4 text-center fw-light text-secondary" id="py-editable-6">每一次的进步都会反映到学习进度条，与目标之间的距离了然于心！</div>
+      <div class="progress margin-block" role="progressbar" aria-label="Animated striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+        <div id="prog-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-warning">10%</div>
+      </div>
+      <span id="course-anchor" />
+    </section>
+
+    <section id="service-section" class="container margin-section">
+      <h1 class="display-6 text-center fw-light" id="py-editable-36">服务和工具</h1>
+      <div class="fs-4 text-center fw-light text-secondary" id="py-editable-37">各种小工具为实际工作提供服务。购买任何一课之后免费解锁！</div>
+      <div class="service-container margin-block">
+        <div class="service-icon-container gray-text fs-5">
+          <div class="service-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="只需输入时薪和工时，根据加州劳工法自动计算所需支付的工资（包括加班费。）">
+            <img class="service-icon-img" draggable="false" alt="wageCal" src="./assets/wageCal.jpeg">
+            <div class='service-name'>工资计算器</div>
+          </div>
+          <div class="service-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="测试您在所需的考试中，您的词汇量在什么程度。">
+            <img class="service-icon-img" draggable="false" alt="vocabtest" src="./assets/vocabtest.jpeg">
+            <div class='service-name'>词汇量测试</div>
+          </div>
+          <div class="service-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="输入双方信息和其他所需信息，自动生成一份完整的合同。包括：工程，雇佣，等等。">
+            <img class="service-icon-img" draggable="false" alt="agrmtgen" src="./assets/agrmtgen.jpeg">
+            <div class='service-name'>合同生成</div>
+          </div>
+          <div class="service-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="在全中文页面填写您的信息，之后自动填写到所需的CSLB英文原表格。包括：执照申请表，经验认证表，等等。">
+            <img class="service-icon-img" draggable="false" alt="formHelper" src="./assets/formHelper.jpeg">
+            <div class='service-name'>填表助手</div>
+          </div>
+          <div class="service-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="输入价格和项目大小来自动计算所需的沥青用料需求量。">
+            <img class="service-icon-img" draggable="false" alt="asphaltCal" src="./assets/asphaltCal.jpeg">
+            <div class='service-name'>沥青用料计算器</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="carousel-section" class="container margin-section">
+      <h1 class="display-6 text-center fw-light" id="py-editable-36">施工现场</h1>
+      <div class="fs-4 text-center fw-light text-secondary" id="py-editable-12">实地讲解</div>
+      <div id="carouselExampleIndicators" class="carousel slide margin-block" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 0"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./assets/1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/3.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/4.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/5.jpeg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/6.jpeg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/7.jpeg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/8.jpeg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <footer class="margin-section">
+      <div id="footer-content" class="container">
+        <section class="text-center">
+          <div class="h5 footer-title" id="py-editable-45b">联系我们</div>
+          <img draggable="false" id="footer-qrcode" src="./assets/wechat.jpg" alt="qrcode" width="200px" />
+          <div>
+            <div class="fs-6" id="py-editable-46"><i class="bi bi-telephone-fill"></i> 1(626)866-5256</div>
+            <div class="fs-6" id="py-editable-47"><i class="bi bi-envelope-fill"></i> support@flybull.net</div>
+          </div>
+        </section>
+        <section class="text-center">
+          <div class="h5 footer-title" id="py-editable-48">合作伙伴</div>
+        </section>
+        <section id="sitemap" class="text-center">
+          <div class="h5 footer-title" id="py-editable-49">目录</div>
+          <div class="foot-catelog"><a href="#" class="link-primary">主页</a></div>
+          <div class="foot-catelog"><a href="#" class="link-primary news-elements">动态</a></div>
+          <div class="foot-catelog"><a href="#course-anchor" class="link-primary">课程</a></div>
+          <div class="foot-catelog"><a href="#book-anchor" class="link-primary">教材</a></div>
+          <div class="foot-catelog"><a href="#exam-anchor" class="link-primary">试题</a></div>
+          <div class="foot-catelog"><a href="#vocabulary-anchor" class="link-primary">词汇</a></div>
+          <div class="foot-catelog"><a href="#service-anchor" class="link-primary">服务</a></div>
+        </section>
+      </div>
+      <div class="copyright"><p id="copyright-p">&copy; <span id="py-editable-57">2024 Flybull. All rights reserved.</span></p></div>
+    </footer>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+        <div class="toast-header">
+          <img src="./assets/icon.ico" width="25px" class="rounded me-2" alt="...">
+          <strong class="me-auto">Flybull</strong>
+          <small>新消息</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" style="font-size: 1.2em;">
+          👋 欢迎来到飞牛🐮！新用户注册时输入 <b>FB888</b> 推荐码即可获得50元优惠🥑！
+          <div class="toast-download-text"><a href="javascript:void(0)" onclick="location.href='#downloads-anchor'">下载客户端</a>后可注册账户</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./scripts/news.js"></script>
+    <script src="./scripts/book.js"></script>
+    <script src="./scripts/exam.js"></script>
+    <script src="./scripts/vocab.js"></script>
+  </body>
+</html>

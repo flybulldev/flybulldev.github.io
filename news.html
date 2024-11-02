@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flybull</title>
+    <link rel="icon" href="./assets/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+  </head>
+
+  <body>
+    <header>
+      <div id="header-container" class="container">
+        <img draggable="false" id="logo-img" src="./assets/logo_h.gif" alt="logo">
+        <nav>
+          <button type="button" class="nav-btn" onclick="location.href='./index.html'">主页</button>
+          <button type="button" class="nav-btn" onclick="location.href='./news.html'">动态</button>
+          <button type="button" class="nav-btn" onclick="location.href='./index.html#course-anchor'">课程</button>
+          <button type="button" class="nav-btn" onclick="location.href='./index.html#book-anchor'">教材</button>
+          <button type="button" class="nav-btn" onclick="location.href='./index.html#exam-anchor'">试题</button>
+          <button type="button" class="nav-btn" onclick="location.href='./index.html#vocabulary-anchor'">词汇</button>
+          <button type="button" class="nav-btn" onclick="location.href='./index.html#service-anchor'">服务</button>
+        </nav>
+        <div>
+          <!-- <button type="button" class="btn btn-light">中 / EN</button> -->
+          <button type="button" class="btn btn-warning" onclick="location.href='./index.html#downloads-section'">下载</button>
+        </div>
+      </div>
+    </header>
+
+    <section id="news-banner" > </section>
+
+    <section id="news-view" class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="./index.html">主页</a></li>
+          <li class="breadcrumb-item"><a href="./news.html">动态</a></li>
+          <li class="breadcrumb-item active" aria-current="page" v-if="id">{{ currentNews ? currentNews.title : '...'}}</li>
+        </ol>
+      </nav>
+
+      <template v-if="id">
+        <h3 class="text-center fw-light">{{currentNews ? currentNews.title : 'Loading...'}}</h3>
+        <p class="text-center text-secondary">{{currentNews ? currentNews.date : ''}}</p>
+        <div class="news-content" v-html="currentNews? currentNews.content : ''"></div>
+      </template>
+
+      <template v-else>
+        <div id="news" class="margin-row">
+          <div class="list-group">
+            <a class="list-group-item list-group-item-action" v-for="n in currentList" :href="`./news.html?id=${n.id}`"><span class="news-title d-inline-block text-truncate">{{ n.title }}</span><span class="float-end news-date">{{n.date}}</span></a>
+          </div>
+        </div>
+        
+        <nav class="margin-block d-flex justify-content-center">
+          <ul class="pagination">
+            <li :class="`page-item ${currentPage == 1 ? 'disabled' : ''}`">
+              <a class="page-link" href="javascript:void(0)" aria-label="Previous" @click="gotoPage(currentPage - 1)">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li :class="`page-item ${currentPage == n ? 'active' : ''}`" v-for="n in numOfpages"><a class="page-link" href="javascript:void(0)" @click="gotoPage(n)">{{n}}</a></li>
+            <li :class="`page-item ${currentPage == numOfpages ? 'disabled' : ''}`">
+              <a class="page-link" href="javascript:void(0)" aria-label="Next" @click="gotoPage(currentPage + 1)">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </template>
+    </section>
+
+    <footer class="margin-section">
+      <div id="footer-content" class="container">
+        <section class="text-center">
+          <div class="h5 footer-title" id="py-editable-45b">联系我们</div>
+          <img draggable="false" id="footer-qrcode" src="./assets/wechat.jpg" alt="qrcode" width="200px" />
+          <div>
+            <div class="fs-6" id="py-editable-46"><i class="bi bi-telephone-fill"></i> 1(626)866-5256</div>
+            <div class="fs-6" id="py-editable-47"><i class="bi bi-envelope-fill"></i> support@flybull.net</div>
+          </div>
+        </section>
+        <section class="text-center">
+          <div class="h5 footer-title" id="py-editable-48">合作伙伴</div>
+        </section>
+        <section id="sitemap" class="text-center">
+          <div class="h5 footer-title" id="py-editable-49">目录</div>
+          <div class="foot-catelog"><a href="#" class="link-primary">主页</a></div>
+          <div class="foot-catelog"><a href="#" class="link-primary news-elements">动态</a></div>
+          <div class="foot-catelog"><a href="#course-anchor" class="link-primary">课程</a></div>
+          <div class="foot-catelog"><a href="#book-anchor" class="link-primary">教材</a></div>
+          <div class="foot-catelog"><a href="#exam-anchor" class="link-primary">试题</a></div>
+          <div class="foot-catelog"><a href="#vocabulary-anchor" class="link-primary">词汇</a></div>
+          <div class="foot-catelog"><a href="#service-anchor" class="link-primary">服务</a></div>
+        </section>
+      </div>
+      <div class="copyright"><p id="copyright-p">&copy; <span id="py-editable-57">2024 Flybull. All rights reserved.</span></p></div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./scripts/newsView.js"></script>
+  </body>
