@@ -170,6 +170,7 @@ Vue.createApp({
             if (this.section === 1 || this.section === 2) {
                 this.options = this.getOptions()
             }
+            this.playsound()
         },
         input(val, prev) {
             const stringToCompare = this.vocabs[this.index].word.slice(0, val.length)
