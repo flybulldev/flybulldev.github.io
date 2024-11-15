@@ -8,7 +8,7 @@ Vue.createApp({
   async created() {
     try {
       const url = "https://licexam.com/flybull/news.php?hp=1";
-      const response = await fetch(url);
+      const response = await fetch(url, { cache: 'no-store' });
       const news = await response.json();
 
       this.news = news;

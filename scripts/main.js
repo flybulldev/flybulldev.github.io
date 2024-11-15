@@ -1,6 +1,6 @@
 async function checkAlert() {
   try {
-    const response = await fetch("https://licexam.com/flybull/alert.json");
+    const response = await fetch("https://licexam.com/flybull/alert.json", { cache: 'no-store' });
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);

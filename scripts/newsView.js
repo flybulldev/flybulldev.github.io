@@ -51,9 +51,15 @@ Vue.createApp({
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("id")) {
-      const url = `https://licexam.com/flybull/news.php?id=${this.id}`;
-      const response = await fetch(url);
-      const news = await response.json();
+      let news = localStorage.getItem(`news-${this.id}`);
+      if (news) {
+        news = JSON.parse(news);
+      } else {
+        const url = `https://licexam.com/flybull/news.php?id=${this.id}`;
+        const response = await fetch(url);
+        news = await response.json();
+        localStorage.setItem(`news-${this.id}`, JSON.stringify(news));
+      }
       this.currentNews = news;
     } else {
       try {
