@@ -2,4 +2,4 @@ User-agent
 Disallow
 
 # Allow access to your sitemap for this domain
-Sitemap httpsflybull.netsitemap.xml
+Sitemap https://flybull.net/sitemap.xml
