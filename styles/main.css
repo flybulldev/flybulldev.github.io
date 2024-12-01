@@ -454,9 +454,23 @@ footer section {
   margin-bottom: 20px;
 }
 
-#footer-qrcode {
+.footer-qrcode {
   border-radius: 5px;
   margin-bottom: 15px;
+}
+
+#phone-email-container {
+  width: 180px; 
+  height: 180px; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  display: none;
+  margin-left: 10px;
 }
 
 .foot-catelog {
