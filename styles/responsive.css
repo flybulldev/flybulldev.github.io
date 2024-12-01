@@ -99,6 +99,10 @@
   .mobile-only {
     display: block;
   }
+
+  #breadcrumb-title {
+    display: none;
+  }
 }
 
 @media (max-width: 1400px) {

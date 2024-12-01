@@ -1,4 +1,4 @@
-window.onload = () => {
+function setupFooterContacts() {
     const wechatRadio = document.getElementById('wechat-radio');
     const lineRadio = document.getElementById('line-radio');
     const otherRadio = document.getElementById('other-radio');

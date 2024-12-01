@@ -1,3 +1,7 @@
+window.onload = () => {
+  setupFooterContacts();
+};
+
 Vue.createApp({
   data() {
     return {

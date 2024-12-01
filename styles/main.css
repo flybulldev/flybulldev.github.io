@@ -468,9 +468,10 @@ footer section {
   flex-direction: column;
   background-color: #fff;
   border-radius: 5px;
-  margin-bottom: 15px;
+  
   display: none;
-  margin-left: 10px;
+  margin: auto;
+  margin-bottom: 15px;
 }
 
 .foot-catelog {

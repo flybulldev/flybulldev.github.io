@@ -44,6 +44,7 @@ window.onload = () => {
 
   checkAlert();
   progressBarAnimate();
+  setupFooterContacts();
 
   setTimeout(() => {
     const toastBootstrap =
