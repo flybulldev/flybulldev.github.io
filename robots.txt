@@ -1,5 +1,4 @@
-User-agent 
-Disallow
+User-agent: *
+Allow: /
 
-# Allow access to your sitemap for this domain
 Sitemap https://flybull.net/sitemap.xml
