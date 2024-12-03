@@ -81,7 +81,7 @@
   </div>
 
   <section id="downloads-section" class="container margin-block">
-    <h1 class="display-6 text-center fw-light">下载客户端</h1>
+    <h2 class="display-6 text-center fw-light">下载客户端</h2>
     <div class="fs-4 text-center fw-light text-secondary">
       多功能一体式在线学习平台。主讲加州各类承包商执照考试!
     </div>
@@ -119,7 +119,7 @@
   </section>
 
   <section id="news-section" class="container margin-section news-elements">
-    <h1 class="display-6 text-center fw-light">最新动态</h1>
+    <h2 class="display-6 text-center fw-light">最新动态</h2>
     <div id="news" class="margin-row">
       <div class="list-group">
         <a class="list-group-item list-group-item-action" v-for="n in news" :href="`./news.html?id=${n.id}`"><span
@@ -132,7 +132,7 @@
   </section>
 
   <section id="faq-section" class="container margin-section">
-    <h1 class="display-6 text-center fw-light">常见问题</h1>
+    <h2 class="display-6 text-center fw-light">常见问题</h2>
     <div class="accordion accordion-flush" id="accordionFlushExample">
       <div class="accordion-item">
         <h2 class="accordion-header">
@@ -336,7 +336,7 @@
   </section>
 
   <section id="course-section" class="margin-section container">
-    <h1 class="display-6 text-center fw-light">云课堂</h1>
+    <h1 class="display-6 text-center fw-light">飞牛云课堂</h1>
     <div class="fs-4 text-center fw-light text-secondary">
       中文教学，从新手到专家！另有施工现场讲解。随时随地开始学习！
     </div>
@@ -367,7 +367,7 @@
   </section>
 
   <section id="book-section" class="margin-section container">
-    <h1 class="display-6 text-center fw-light">独家教材</h1>
+    <h2 class="display-6 text-center fw-light">独家教材</h2>
     <div class="fs-4 text-center fw-light text-secondary">
       中英双语独家自编教材。专业知识，随时翻阅！
     </div>
@@ -400,7 +400,7 @@
   </section>
 
   <section id="exam-section" class="container margin-section">
-    <h1 class="display-6 text-center fw-light">试题学习</h1>
+    <h2 class="display-6 text-center fw-light">试题学习</h2>
     <div class="fs-4 text-center fw-light text-secondary">
       双语题库，随时切换，每个题库都有上百道题！学习模式和考试模式双重巩固记忆！
     </div>
@@ -490,7 +490,7 @@
   </section>
 
   <section id="vocabulary-section" class="container margin-section">
-    <h1 class="display-6 text-center fw-light">词汇学习</h1>
+    <h2 class="display-6 text-center fw-light">词汇学习</h2>
     <div class="fs-4 text-center fw-light text-secondary">
       为考试学习打好基础。每个考试都有单独的词汇库！
     </div>
@@ -514,11 +514,11 @@
         </button>
       </div>
       <section v-if="section === 0" class="vocab-sub-sections">
-        <h1 class="display-6 fw-light">{{vocabs[index].word}}</h1>
+        <h2 class="display-6 fw-light">{{vocabs[index].word}}</h2>
         <button type="button" class="btn btn-light" @click="playsound">
           <i class="bi bi-volume-up-fill"></i>
         </button>
-        <h1 class="fw-light vocab-cn">{{vocabs[index].cn}}</h1>
+        <h2 class="fw-light vocab-cn">{{vocabs[index].cn}}</h2>
         <div class="vocab-example-container margin-block">
           <div class="vocab-example">
             <div v-html="vocabs[index].question" class="fs-5"></div>
@@ -542,13 +542,13 @@
       </section>
       <section v-if="section === 1 || section === 2" class="vocab-sub-sections">
         <template v-if="!this.finish">
-          <h1 v-if="this.section === 2" class="display-6 fw-light">
+          <h2 v-if="this.section === 2" class="display-6 fw-light">
             {{vocabs[index].word}}
-          </h1>
+          </h2>
           <button type="button" class="btn btn-light" @click="playsound">
             <i class="bi bi-volume-up-fill"></i>
           </button>
-          <!-- <h1 v-if="this.section === 1" class="fw-light vocab-cn margin-row">{{vocabs[index].cn}}</h1> -->
+          <!-- <h2 v-if="this.section === 1" class="fw-light vocab-cn margin-row">{{vocabs[index].cn}}</h1> -->
           <div class="vocab-options margin-block">
             <div v-for="(opt, i) in options" @click="optClick(i)" class="vocab-option"
               :style="!opt.highlight ? '' : opt.correct ? 'background-color: rgb(150, 255, 150)' : 'background-color: rgb(255, 150, 150)'">
@@ -568,7 +568,7 @@
           <button type="button" class="btn btn-light" @click="playsound">
             <i class="bi bi-volume-up-fill"></i>
           </button>
-          <h1 class="fw-light vocab-cn margin-row">{{vocabs[index].cn}}</h1>
+          <h2 class="fw-light vocab-cn margin-row">{{vocabs[index].cn}}</h2>
           <div class="margin-block vocab-options">
             <input type="text"
               :class="`form-control vocab-input ${ inputError ? 'is-invalid' : ''} ${ inputPass ? 'is-valid' : '' }`"
@@ -591,7 +591,7 @@
   </section>
 
   <section id="progress-section" class="container margin-section">
-    <h1 class="display-6 text-center fw-light">学习进度报告</h1>
+    <h2 class="display-6 text-center fw-light">学习进度报告</h2>
     <div class="fs-4 text-center fw-light text-secondary">
       每一次的进步都会反映到学习进度条，与目标之间的距离了然于心！
     </div>
@@ -604,7 +604,7 @@
   </section>
 
   <section id="service-section" class="container margin-section">
-    <h1 class="display-6 text-center fw-light">服务和工具</h1>
+    <h2 class="display-6 text-center fw-light">服务和工具</h2>
     <div class="fs-4 text-center fw-light text-secondary">
       各种小工具为实际工作提供服务。购买任何一课之后免费解锁！
     </div>
@@ -640,7 +640,7 @@
   </section>
 
   <section id="carousel-section" class="container margin-section">
-    <h1 class="display-6 text-center fw-light">施工现场</h1>
+    <h2 class="display-6 text-center fw-light">施工现场</h2>
     <div class="fs-4 text-center fw-light text-secondary"></div>
     <div id="carouselExampleIndicators" class="carousel slide margin-block" data-bs-ride="carousel">
       <div class="carousel-indicators">
