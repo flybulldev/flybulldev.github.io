@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
   <meta charset="utf-8" />
@@ -85,7 +85,7 @@
         </div>
       </div>
 
-      <nav class="margin-block d-flex justify-content-center">
+      <nav v-if="numOfpages > 1" class="margin-block d-flex justify-content-center">
         <ul class="pagination">
           <li :class="`page-item ${currentPage == 1 ? 'disabled' : ''}`">
             <a class="page-link" href="javascript:void(0)" aria-label="Previous" @click="gotoPage(currentPage - 1)">

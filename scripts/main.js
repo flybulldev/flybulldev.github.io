@@ -33,6 +33,13 @@ function toHome() {
   window.scrollTo(0, 0);
 }
 
+function showMoreFAQ() {
+  const moreFAQbtn = document.getElementById('faq-more-btn');
+  moreFAQbtn.style.display = 'none';
+  const moreFAQ = document.getElementById('faq-hidden');
+  moreFAQ.style.display = 'block';
+}
+
 window.onload = () => {
   const tooltipTriggerList = document.querySelectorAll(
     '[data-bs-toggle="tooltip"]'
