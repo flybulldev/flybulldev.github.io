@@ -496,6 +496,10 @@ footer section {
   display: none;
 }
 
+#mobile-header-text {
+  display: none;
+}
+
 .toast-download-text {
   margin-top: 20px;
   font-size: 0.85em;

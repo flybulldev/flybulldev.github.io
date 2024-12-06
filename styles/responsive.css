@@ -3,11 +3,20 @@
     padding: 0;
   }
 
-  body header {
+  body header nav {
+    display: none;
+  }
+
+  #mobile-header-text {
+    display: block;
+  }
+
+  #header-right-container button {
     display: none;
   }
 
   #banner {
+    margin-top: 90px;
     height: 100px;
   }
 
