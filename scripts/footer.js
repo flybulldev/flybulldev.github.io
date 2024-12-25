@@ -8,7 +8,6 @@ function setupFooterContacts() {
     const email = document.getElementById('footer-email');
     const phone = document.getElementById('footer-phone');
   
-  
     wechatRadio.addEventListener('change', () => {
       if (wechatRadio.checked) {
         wechatQrcode.style.display = '';

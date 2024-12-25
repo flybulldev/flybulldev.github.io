@@ -13,8 +13,6 @@ Vue.createApp({
     };
   },
   computed: {
-    // currentNews() { return this.newsList? this.newsList.find(n => n.id == this.id) : null},
-
     numOfpages() {
       return this.newsList
         ? Math.ceil(this.newsList.length / this.rowPerPage)
