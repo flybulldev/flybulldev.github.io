@@ -99,6 +99,7 @@ header {
 }
 
 .downloads-title {
+  margin-top: 40px;
   display: flex;
   justify-content: space-around;
 }
@@ -127,6 +128,31 @@ header {
 
 .bi-android2 {
   color: rgb(164, 198, 57);
+}
+
+#instruction-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+#instruction {
+  width: 100%;
+  max-width: 315px;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  border: 1px solid rgb(172, 172, 172);
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+.bi-file-earmark-pdf-fill {
+  color: rgb(255, 0, 0);
+  font-size: 3em;
+  margin-right: 10px;
 }
 
 .progress {
