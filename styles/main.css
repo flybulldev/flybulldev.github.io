@@ -54,6 +54,23 @@ header {
   background-repeat: none;
   background-position: center;
   background-size: cover;
+  /* display: relative; */
+  position: relative;
+}
+
+/* #platforms-image {
+  position: absolute;
+  left: 20%;
+  bottom: 0;
+  width: 500px;
+  transform: translate(0, 25%);
+} */
+
+#platforms-image {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 750px;
+  transform: translate(11%, 0);
 }
 
 #banner-container {

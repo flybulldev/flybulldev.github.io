@@ -28,6 +28,10 @@
     display: block;
   }
 
+  #platforms-image {
+    transform: translate(0, 0);
+  }
+
   .margin-section {
     margin-top: 50px;
   }
