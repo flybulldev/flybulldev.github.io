@@ -444,46 +444,86 @@
     <div id="exam" class="exam-intro margin-block">
       <div class="exam-container">
         <div class="question-nums">
-          <div :class="`question-num-box ${index === currentIndex ? 'question-current-box ' : ''}`"
-            v-for="(question, index) in questions" :key="index" @click="goToQuestion(index)">
-            <div v-if="flaggedQuestions.includes(index)"
-              :class="`question-num-inner ${getQuestionNumIndicator(index)}`">
+          <!-- (Keep your question numbers code as before) -->
+          <div
+            :class="`question-num-box ${index === currentIndex ? 'question-current-box' : ''}`"
+            v-for="(question, index) in questions"
+            :key="index"
+            @click="goToQuestion(index)"
+          >
+            <div
+              v-if="flaggedQuestions.includes(index)"
+              :class="`question-num-inner ${getQuestionNumIndicator(index)}`"
+            >
               <i class="bi bi-bookmark-fill text-warning"></i>
             </div>
             <div v-else :class="`question-num-inner ${getQuestionNumIndicator(index)}`">
-              {{index+1}}
+              {{ index + 1 }}
             </div>
           </div>
         </div>
+  
         <div class="question-panel">
           <div class="fs-5">
-            {{`${ currentIndex+1 }. ${ translate ?
-            translations[currentIndex].question :
-            questions[currentIndex].question }` }}
+            {{ currentIndex + 1 }}. {{ translate ? translations[currentIndex].question : questions[currentIndex].question }}
           </div>
           <div v-if="questions[currentIndex].image">
-            <img draggable="false" width="75%" alt="question image"
-              :src="`./assets/${questions[currentIndex].image}.png`" />
+            <img
+              draggable="false"
+              width="75%"
+              alt="question image"
+              :src="`./assets/${questions[currentIndex].image}.png`"
+            />
           </div>
-          <div class="question-option form-check fs-5" v-for="(option, index) in questions[currentIndex].options"
-            :key="index">
-            <input placeholder="_" class="form-check-input" type="radio" name="flexRadioDefault"
-              :id="`flexRadio${index}`" :checked="selectedOptions[currentIndex] === index"
-              @click="selectOption(index)" />
-            <label :class="`form-check-label ${ getAnswerIndicator(index) }`" :for="`flexRadio${index}`">
-              {{ translate ? translations[currentIndex].options[index] :
-              option }}
+          <div
+            class="question-option form-check fs-5"
+            v-for="(option, index) in questions[currentIndex].options"
+            :key="index"
+          >
+            <input
+              placeholder="_"
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              :id="`flexRadio${index}`"
+              :checked="selectedOptions[currentIndex] === index"
+              @click="selectOption(index)"
+            />
+            <label
+              :class="`form-check-label ${getAnswerIndicator(index)}`"
+              :for="`flexRadio${index}`"
+            >
+              {{ translate ? translations[currentIndex].options[index] : option }}
             </label>
           </div>
         </div>
+  
         <div class="question-btns text-center">
-          <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle Vertical button group">
-            <input type="radio" class="btn-check" name="btnradio" id="study" autocomplete="off"
-              @click="changeMode()" :checked="studyMode" />
+          <div
+            class="btn-group-vertical"
+            role="group"
+            aria-label="Basic radio toggle Vertical button group"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="study"
+              autocomplete="off"
+              @click="changeMode()"
+              :checked="studyMode"
+            />
             <label class="btn btn-outline-warning" for="study">学习模式</label>
-
-            <input type="radio" class="btn-check" name="btnradio" id="test" autocomplete="off"
-              @click="changeMode()" :checked="!studyMode" />
+  
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="test"
+              autocomplete="off"
+              @click="changeMode()"
+              :checked="!studyMode"
+            />
             <label class="btn btn-outline-warning" for="test">考试模式</label>
           </div>
           <div class="margin-row" v-if="studyMode">
@@ -493,29 +533,77 @@
           <div class="margin-row" v-else>
             <div class="text-primary">答题结束后显示<br />正确答案</div>
           </div>
-          <button type="button" :class="`btn margin-row ${ translate ? 'btn-primary' : 'btn-outline-primary' }`"
-            @click="showTranslations()">
+          <button
+            type="button"
+            :class="`btn margin-row ${translate ? 'btn-primary' : 'btn-outline-primary'}`"
+            @click="showTranslations()"
+          >
             翻译
           </button>
           <br />
-          <button type="button"
-            :class="`btn margin-row ${ flaggedQuestions.includes(currentIndex) ? 'btn-danger' : 'btn-outline-danger' }`"
-            @click="flag()">
+          <button
+            type="button"
+            :class="`btn margin-row ${flaggedQuestions.includes(currentIndex) ? 'btn-danger' : 'btn-outline-danger'}`"
+            @click="flag()"
+          >
             标记
           </button>
         </div>
       </div>
+  
       <div class="question-nav-container">
         <div class="question-nav">
-          <button type="button" :class="`btn ${currentIndex === 0 ? 'btn-outline-secondary' : 'btn-outline-warning'}`"
-            @click="back()" :disabled="currentIndex === 0">
+          <button
+            type="button"
+            :class="`btn ${currentIndex === 0 ? 'btn-outline-secondary' : 'btn-outline-warning'}`"
+            @click="back()"
+            :disabled="currentIndex === 0"
+          >
             上一题
           </button>
-          <button type="button"
+          <!-- Added @click="typeExplanation" so clicking this button will start the typewriter effect -->
+          <button
+            type="button"
+            class="btn btn-outline-danger ai-btn"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasScrolling"
+            aria-controls="offcanvasScrolling"
+            @click="typeExplanation()"
+          >
+            AI 解题
+          </button>
+          <button
+            type="button"
             :class="`btn ${studyMode && currentIndex === questions.length - 1 ? 'btn-outline-secondary' : 'btn-outline-warning'}`"
-            :disabled="studyMode && currentIndex === questions.length - 1" @click="next()">
+            :disabled="studyMode && currentIndex === questions.length - 1"
+            @click="next()"
+          >
             下一题
           </button>
+        </div>
+      </div>
+  
+      <!-- Offcanvas to show the explanation text -->
+      <div
+        class="offcanvas offcanvas-bottom"
+        data-bs-scroll="true"
+        data-bs-backdrop="false"
+        tabindex="-1"
+        id="offcanvasScrolling"
+        aria-labelledby="offcanvasScrollingLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasScrollingLabel">飞牛智能为您解答</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <!-- Instead of directly binding the explanation text, we bind to displayedExplanation -->
+          <p style="white-space: pre-line;">{{ displayedExplanation }}</p>
         </div>
       </div>
     </div>
@@ -524,7 +612,7 @@
     <div class="exam-intro margin-block fs-5">
       <a id="vocabulary-anchor"></a>
     </div>
-  </section>
+  </section>  
 
   <section id="vocabulary-section" class="container margin-section">
     <h2 class="display-6 text-center fw-light">词汇学习</h2>
