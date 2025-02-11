@@ -59,18 +59,118 @@ header {
 }
 
 /* #platforms-image {
-  position: absolute;
-  left: 20%;
-  bottom: 0;
-  width: 500px;
-  transform: translate(0, 25%);
-} */
-
-#platforms-image {
   margin-top: 30px;
   width: 100%;
   max-width: 750px;
   transform: translate(11%, 0);
+} */
+
+.platforms-wrapper {
+  position: relative;
+  margin-top: 30px;
+  max-width: 750px;
+  margin: auto;
+}
+
+#platforms-img {
+  width: 100%;
+  transform: translate(11%, 0);
+}
+
+#neon-label {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.hologram-effect {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: hologramFloat 3s ease-in-out infinite;
+}
+
+.ai-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.8rem;
+  color: #00f3ff;
+  text-shadow: 0 0 15px #00f3ff,
+               0 0 30px #00f3ff,
+               0 0 45px rgba(0,243,255,0.5);
+  line-height: 1;
+  display: block;
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(90deg, #00f3ff 20%, #ff00ff 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textFlow 4s linear infinite;
+}
+
+.neon-status {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.signal-dot {
+  width: 14px;
+  height: 14px;
+  background: #00ff87;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #00ff87;
+  animation: signalPulse 1.5s ease-out infinite;
+}
+
+.neon-status span {
+  font-family: 'Rajdhani', sans-serif;
+  color: #00f3ff;
+  font-size: 1.4rem;
+  text-shadow: 0 0 10px rgba(0,243,255,0.5);
+}
+
+@keyframes hologramFloat {
+  0%, 100% { transform: translateY(0) rotateX(0deg); }
+  50% { transform: translateY(-10px) rotateX(5deg); }
+}
+
+@keyframes textFlow {
+  to { background-position: 200% 0; }
+}
+
+@keyframes signalPulse {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.3; transform: scale(0.8); }
+}
+
+/* 全息投影光线效果 */
+.hologram-effect::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -20px;
+  right: -20px;
+  bottom: -15px;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0,243,255,0.1) 3px,
+    rgba(0,243,255,0.1) 5px
+  );
+  z-index: 1;
+  mix-blend-mode: screen;
+  animation: scanLines 0.8s linear infinite;
+}
+
+@keyframes scanLines {
+  from { transform: translateY(-10px); }
+  to { transform: translateY(0); }
 }
 
 #banner-container {
@@ -578,17 +678,32 @@ footer section {
 .ai-btn {
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
   transition: transform 0.3s ease-in-out;
-  animation: glow 1.5s infinite alternate ease-in-out;
+  animation: glow 4.5s infinite linear;
 }
 
 @keyframes glow {
   0% {
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    box-shadow: 
+      0 0 10px hsl(0, 100%, 50%, 0.8),
+      0 0 20px hsl(0, 100%, 50%, 0.5);
+  }
+  33% {
+    box-shadow: 
+      0 0 10px hsl(120, 100%, 50%, 0.8),
+      0 0 20px hsl(120, 100%, 50%, 0.5);
+  }
+  66% {
+    box-shadow: 
+      0 0 10px hsl(240, 100%, 50%, 0.8),
+      0 0 20px hsl(240, 100%, 50%, 0.5);
   }
   100% {
-    box-shadow: 0 0 20px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 0.8);
+    box-shadow: 
+      0 0 10px hsl(0, 100%, 50%, 0.8),
+      0 0 20px hsl(0, 100%, 50%, 0.5);
   }
 }
+
 
 .offcanvas-title {
   font-family: 'Arial', sans-serif;

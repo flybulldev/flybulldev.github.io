@@ -28,7 +28,7 @@
     display: block;
   }
 
-  #platforms-image {
+  #platforms-img {
     transform: translate(0, 0);
   }
 
@@ -108,6 +108,10 @@
   #breadcrumb-title {
     display: none;
   }
+
+  #neon-label {
+    right: 10%;
+  }
 }
 
 @media (max-width: 1400px) {
@@ -139,5 +143,10 @@
 
   #downloads-mobile {
     display: block;
+  }
+
+  #neon-label {
+    scale: 0.5;
+    right : 0;
   }
 }
