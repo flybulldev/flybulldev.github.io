@@ -1,23 +1,3 @@
-async function checkAlert() {
-  try {
-    const response = await fetch("https://licexam.com/flybull/alert.json", { cache: 'no-store' });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const data = await response.json();
-
-    if (data.alert !== "") {
-      const alert = document.getElementById('alert');
-      alert.textContent = data.alert;
-      alert.style.display = 'block';
-    }
-  } catch (error) {
-    console.log(error)
-  }
-}
-
 function progressBarAnimate() {
   let percentage = 10;
   setInterval(() => {
@@ -49,7 +29,6 @@ window.onload = () => {
   );
   const toastLiveExample = document.getElementById("liveToast");
 
-  checkAlert();
   progressBarAnimate();
   setupFooterContacts();
 
