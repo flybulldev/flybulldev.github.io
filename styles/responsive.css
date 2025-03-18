@@ -131,6 +131,22 @@
   .downloads-desktop {
     display: none;
   }
+
+  header {
+    position: inherit;
+  }
+
+  #header-container {
+    justify-content: space-around;
+  }
+
+  #banner {
+    margin-top: 0;
+  }
+
+  #liveToast-container {
+    display: none;
+  }
   
   #footer-content {
     display: block;
