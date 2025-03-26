@@ -27,7 +27,7 @@ function setupFooterContacts() {
     otherRadio.addEventListener('change', () => {
       if (otherRadio.checked) {
         email.textContent = 'flybullinc@gmail.com';
-        phone.textContent = '1(626)210-3000';
+        phone.textContent = '1(747)359-2855';
         wechatQrcode.style.display = 'none';
         lineQrcode.style.display = 'none';
         otherInfo.style.display = 'flex';
