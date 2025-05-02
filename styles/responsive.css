@@ -128,6 +128,11 @@
 }
 
 @media (max-width: 575px) {
+  #logo-img {
+    width: 50%;
+    height: auto;
+  }
+
   .downloads-desktop {
     display: none;
   }
