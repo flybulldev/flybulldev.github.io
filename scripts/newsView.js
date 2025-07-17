@@ -60,8 +60,10 @@ Vue.createApp({
         const url = `https://news.flybull.net/news.php?id=${this.id}`;
         const response = await fetch(url);
         news = await response.json();
+        
         localStorage.setItem(`news-${this.id}`, JSON.stringify(news));
       }
+      document.title = news.title
       this.currentNews = news;
     } else {
       try {
