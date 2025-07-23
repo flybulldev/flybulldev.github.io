@@ -15,6 +15,11 @@
     display: none;
   }
 
+  #logo-img {
+    height: 70px;
+    width: auto;
+  }
+
   #banner {
     margin-top: 90px;
     height: 100px;
@@ -120,6 +125,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  #logo-img {
+    height: 55px;
+    width: auto;
+  }
+}
+
 @media (max-width: 1200px) {
   #classroom {
     padding-left: 10px;
@@ -129,8 +141,8 @@
 
 @media (max-width: 575px) {
   #logo-img {
-    width: 50%;
-    height: auto;
+    height: 50px;
+    width: auto;
   }
 
   .downloads-desktop {

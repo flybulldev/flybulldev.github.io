@@ -23,6 +23,8 @@ header {
 
 #logo-img {
   height: 170%;
+  max-height: 85px;
+  width: auto;
 }
 
 .nav-btn {
