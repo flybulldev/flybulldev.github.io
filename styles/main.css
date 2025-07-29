@@ -741,3 +741,30 @@ footer section {
       transform: scale(1.02);
   }
 }
+
+#galary-section .galary-img {
+  border: 1px solid #c4c4c4;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 4px;
+  background: #fff;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+#galary-section .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+@media (max-width: 767.98px) {
+  #galary-section .row.row-cols-3 > .col {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  #galary-section .galary-img {
+    max-width: 100%;
+    height: auto;
+  }
+}

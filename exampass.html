@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8" />
+  <title>动态-Flybull飞牛建筑执照考试培训中心</title>
+  <meta
+    name="description"
+    content="Flybull飞牛是一家为全美建筑执照考试量身定制的线上培训平台。我们提供中文教材、中文讲课以及双语刷题，帮助学员更好地掌握考试所需的专业知识。课程灵活方便，支持电脑和手机界面，随时随地都能学习，符合全美各州的考试惯例。无论你是从零开始学习技术，还是需要提高英语词汇，飞牛都能为你提供系统的指导，助你轻松应对建筑执照考试，迈向职业成功！"
+  />
+  <meta
+    name="keywords"
+    content="加州, CSLB, 承包商, 建筑, 执照, 考试, 培训, 学校, 在线, 学习, 网课, C-10, C-20, C-36, C10, C20, C36, 加州承包商, 建筑执照, 执照考试, 建筑执照考试, CSLB考试, CSLB建筑考试, 建筑执照培训, 执照考试在线学习, 建筑执照在线学习, 建筑执照考试在线学习, 承包商在线学习, 执照学习, 执照考试在线学校, 承包商在线学校, 执照学校, 执照培训, 执照培训学校, CSLB考试培训, 承包商培训, 执照考试培训, 飞牛CSLB, CSLB备考, 加州承包商执照, CSLB考试准备, 加州承包商执照培训, 加州执照在线学习, CSLB在线学习, 中英双语CSLB, CSLB英文词汇, CSLB专业知识, 承包商执照考试, 承包商执照备考, 加州执照备考平台, CSLB双语课程, CSLB在线辅导, 加州执照考试技巧, CSLB系统学习, 加州承包商备考, CSLB在线教育, 职业考试准备, CSLB自学课程, 在线执照考试准备, 加州承包商考试, 职业成功CSLB"
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" sizes="64x64">
+  <link rel="icon" href="/assets/favicon32.ico" type="image/x-icon" sizes="32x32">
+  <link rel="icon" href="/assets/favicon16.ico" type="image/x-icon" sizes="16x16">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    xintegrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="stylesheet" href="./styles/responsive.css" />
+
+  <!-- Styles for the Image Gallery -->
+  <style>
+    #gallery-container {
+      display: flex; /* Use flexbox to arrange columns */
+      gap: 20px; /* Space between columns */
+      padding: 20px;
+      max-width: 1200px;
+      margin: 40px auto; /* Center the gallery */
+      /* Align columns to the top */
+      align-items: flex-start;
+    }
+
+    .gallery-column {
+      /* Each column is a flex container for items */
+      display: flex;
+      flex-direction: column;
+      gap: 20px; /* Space between items within a column */
+      /* Each column will take up equal width */
+      flex: 1;
+    }
+
+    .gallery-item {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden; /* Ensures the image corners are rounded */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 100%; /* Ensure item takes full width of its column */
+    }
+
+    .gallery-item img {
+      width: 100%; /* Make image fill the item */
+      height: auto; /* Maintain aspect ratio */
+      display: block;
+    }
+
+    .gallery-title {
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #333;
+      background-color: #fff;
+      /* This preserves line breaks from the text file */
+      white-space: pre-wrap;
+      word-wrap: break-word; /* Prevents long text from overflowing */
+    }
+    
+    #loader {
+        text-align: center;
+        padding: 20px;
+        font-style: italic;
+        color: #777;
+        width: 100%;
+    }
+
+    /* Responsive design: On mobile, the flex-direction will be changed by JS */
+    @media (max-width: 480px) {
+      #gallery-container {
+        /* On mobile, stack columns vertically instead of side-by-side */
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div id="header-container" class="container">
+      <img draggable="false" id="logo-img" src="./assets/logo_h.gif" alt="logo" />
+      <nav>
+        <button type="button" class="nav-btn" onclick="location.href='./index.html'">
+          主页
+        </button>
+        <button type="button" class="nav-btn" onclick="location.href='./news.html'">
+          动态
+        </button>
+        <button type="button" class="nav-btn" onclick="location.href='./index.html#course-anchor'">
+          课程
+        </button>
+        <button type="button" class="nav-btn" onclick="location.href='./index.html#book-anchor'">
+          教材
+        </button>
+        <button type="button" class="nav-btn" onclick="location.href='./index.html#exam-anchor'">
+          试题
+        </button>
+        <button type="button" class="nav-btn" onclick="location.href='./index.html#vocabulary-anchor'">
+          词汇
+        </button>
+        <button type="button" class="nav-btn" onclick="location.href='./index.html#service-anchor'">
+          服务
+        </button>
+      </nav>
+      <div>
+        <!-- <button type="button" class="btn btn-light">中 / EN</button> -->
+        <button type="button" class="btn btn-warning" onclick="location.href='./index.html#downloads-section'">
+          下载
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section id="news-banner"></section>
+
+  <h2 class="display-6 text-center fw-light" style="margin-top: 100px;">成长足迹，学海星光。</h2>
+
+  <div style="max-width: 1200px; margin: 20px auto;">
+    <nav aria-label="breadcrumb" id="news-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="./index.html">主页</a></li>
+        <li class="breadcrumb-item"><a href="./exampass.html">学业展廊</a></li>
+      </ol>
+    </nav>
+  </div>
+  <!-- Container for the dynamic image gallery -->
+  <div id="gallery-container"></div>
+  
+  <!-- Loading indicator -->
+  <div id="loader">正在加载...</div>
+
+  <footer class="margin-section">
+    <div id="footer-content" class="container">
+      <section class="text-center">
+        <div class="h5 footer-title">联系我们</div>
+        <div><img draggable="false" class="footer-qrcode" id="footer-qrcode-wechat" src="./assets/wechat.jpg"
+            alt="qrcode" width="180px" /></div>
+        <div><img draggable="false" class="footer-qrcode" id="footer-qrcode-line" src="./assets/line.jpg" alt="qrcode"
+            width="180px" style="display: none;" /></div>
+        <div id="phone-email-container">
+          <div id="footer-email"></div>
+          <div id="footer-phone" style="font-size: 1.2em;"></div>
+        </div>
+        <div class="btn-group" role="group">
+          <input type="radio" class="btn-check" name="qrcode" id="wechat-radio" autocomplete="off" checked>
+          <label class="btn btn-outline-success" for="wechat-radio">微信</label>
+          <input type="radio" class="btn-check" name="qrcode" id="line-radio" autocomplete="off">
+          <label class="btn btn-outline-success" for="line-radio">Line</label>
+          <input type="radio" class="btn-check" name="qrcode" id="other-radio" autocomplete="off">
+          <label class="btn btn-outline-success" for="other-radio">其他</label>
+        </div>
+      </section>
+      <section class="text-center">
+        <div class="h5 footer-title">合作伙伴</div>
+      </section>
+      <section id="sitemap" class="text-center">
+        <div class="h5 footer-title">目录</div>
+        <div class="foot-catelog">
+          <a href="javascript:void(0)" onclick="location.href='./index.html'" class="link-primary">主页</a>
+        </div>
+        <div class="foot-catelog">
+          <a href="javascript:void(0)" onclick="location.href='./news.html'" class="link-primary news-elements">动态</a>
+        </div>
+        <div class="foot-catelog">
+          <a href="javascript:void(0)" onclick="location.href='./index.html#course-anchor'" class="link-primary">课程</a>
+        </div>
+        <div class="foot-catelog">
+          <a href="javascript:void(0)" onclick="location.href='./index.html#book-anchor'" class="link-primary">教材</a>
+        </div>
+        <div class="foot-catelog">
+          <a href="javascript:void(0)" onclick="location.href='./index.html#exam-anchor'" class="link-primary">试题</a>
+        </div>
+        <div class="foot-catelog">
+          <a href="javascript:void(0)" onclick="location.href='./index.html#vocabulary-anchor'"
+            class="link-primary">词汇</a>
+        </div>
+        <div class="foot-catelog">
+          <a href="javascript:void(0)" onclick="location.href='./index.html#service-anchor'" class="link-primary">服务</a>
+        </div>
+      </section>
+    </div>
+    <div class="copyright">
+      <p id="copyright-p">
+        &copy; <span>2024 Flybull. All rights reserved.</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="./scripts/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    xintegrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+
+  <!-- JavaScript for fetching and displaying images -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // --- Configuration ---
+      const galleryContainer = document.getElementById('gallery-container');
+      const loader = document.getElementById('loader');
+      const apiEndpoint = 'https://news.flybull.net/exampass.php';
+      const imageBasePath = 'https://news.flybull.net/exampass/';
+      const batchSize = 9; // Number of images to load at a time
+
+      // --- State Variables ---
+      let allImageData = []; // To store all data from the API
+      let imagesToDisplay = []; // A queue of images waiting to be placed
+      let columnElements = []; // To hold the column DOM elements
+      let isLoading = false; // To prevent multiple simultaneous loads
+      let allDataLoaded = false; // To stop trying to load more when everything is displayed
+
+      // --- Functions ---
+      
+      /**
+       * Determines how many columns to display based on screen width.
+       */
+      function getColumnCount() {
+        if (window.innerWidth <= 480) return 1;
+        if (window.innerWidth <= 768) return 2;
+        return 3;
+      }
+
+      /**
+       * Creates the column elements and adds them to the gallery container.
+       */
+      function setupColumns() {
+        galleryContainer.innerHTML = ''; // Clear previous content
+        columnElements = [];
+        const columnCount = getColumnCount();
+        for (let i = 0; i < columnCount; i++) {
+          const column = document.createElement('div');
+          column.className = 'gallery-column';
+          galleryContainer.appendChild(column);
+          columnElements.push(column);
+        }
+      }
+
+      /**
+       * Finds the shortest column element currently in the DOM.
+       * @returns {HTMLElement} The column element with the minimum height.
+       */
+      function getShortestColumn() {
+        let shortest = columnElements[0];
+        for (let i = 1; i < columnElements.length; i++) {
+          if (columnElements[i].offsetHeight < shortest.offsetHeight) {
+            shortest = columnElements[i];
+          }
+        }
+        return shortest;
+      }
+
+      /**
+       * Creates and appends a single gallery item to the shortest column.
+       * @param {object} itemData - The data for one image {filename, title}.
+       */
+      function placeImage(itemData) {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+
+        const img = document.createElement('img');
+        // When an image loads, it might change the column height, so we check if more images can be placed.
+        img.onload = processImageQueue; 
+        img.src = imageBasePath + itemData.filename;
+        img.alt = itemData.title.split('\n')[0] || 'Gallery Image'; // Provide a fallback alt text
+        
+        item.appendChild(img);
+
+        // *** CHANGE HERE: Only add the title element if the title is not empty ***
+        if (itemData.title && itemData.title.trim() !== '') {
+            const title = document.createElement('div');
+            title.className = 'gallery-title';
+            title.textContent = itemData.title;
+            item.appendChild(title);
+        }
+        
+        const shortestColumn = getShortestColumn();
+        shortestColumn.appendChild(item);
+      }
+      
+      /**
+       * Takes images from the queue and places them one by one.
+       */
+      function processImageQueue() {
+          if (imagesToDisplay.length > 0) {
+              const nextImage = imagesToDisplay.shift();
+              placeImage(nextImage);
+          } else if (allDataLoaded) {
+              loader.textContent = '已显示全部内容';
+          }
+      }
+
+      /**
+       * Loads the next batch of image data and adds it to the queue.
+       */
+      function loadMoreImages() {
+        if (isLoading || allDataLoaded) return;
+
+        isLoading = true;
+        loader.style.display = 'block';
+
+        const nextBatch = allImageData.splice(0, batchSize);
+
+        if (nextBatch.length === 0) {
+            allDataLoaded = true;
+            isLoading = false;
+            // Final check in case the queue is empty
+            if (imagesToDisplay.length === 0) {
+                loader.textContent = '已显示全部内容';
+            }
+            return;
+        }
+
+        imagesToDisplay.push(...nextBatch);
+        processImageQueue(); // Start placing the first image of the new batch
+        
+        isLoading = false;
+        if (!allDataLoaded) {
+            loader.style.display = 'none';
+        }
+      }
+
+      /**
+       * Fetches the initial data from the API.
+       */
+      async function fetchInitialData() {
+        try {
+          const response = await fetch(apiEndpoint);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          allImageData = data.reverse(); // Newest first
+          
+          setupColumns(); // Create columns based on initial screen size
+          loadMoreImages(); // Load the first batch
+        } catch (error) {
+          console.error("Could not fetch image data:", error);
+          loader.textContent = '加载失败，请稍后重试。';
+        }
+      }
+
+      // --- Event Listeners ---
+      function handleScroll() {
+        const buffer = 300; // A larger buffer can feel smoother
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - buffer) {
+          loadMoreImages();
+        }
+      }
+
+      window.addEventListener('scroll', handleScroll);
+      // Note: A full responsive solution would re-run setupColumns() and re-distribute all
+      // loaded images on window resize. This implementation keeps it simple by setting the
+      // layout on page load.
+
+      // --- Initial Call ---
+      fetchInitialData();
+    });
+  </script>
+</body>
+
+</html>
