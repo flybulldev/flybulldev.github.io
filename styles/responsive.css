@@ -51,6 +51,9 @@
     display: block;
     padding: 0;
     text-align: center;
+    background-color: rgb(245, 245, 245);
+    padding: 20px;
+    border-radius: 10px;
   }
 
   .course-titles {
@@ -125,17 +128,17 @@
   }
 }
 
-@media (max-width: 768px) {
-  #logo-img {
-    height: 55px;
-    width: auto;
-  }
-}
-
 @media (max-width: 1200px) {
   #classroom {
     padding-left: 10px;
     font-size: 0.8em;
+  }
+}
+
+@media (max-width: 768px) {
+  #logo-img {
+    height: 55px;
+    width: auto;
   }
 }
 
