@@ -82,12 +82,11 @@ header {
 }
 
 .ai-title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 2.8rem;
   color: #00f3ff;
-  text-shadow: 0 0 15px #00f3ff,
-               0 0 30px #00f3ff,
-               0 0 45px rgba(0,243,255,0.5);
+  text-shadow: 0 0 15px #00f3ff, 0 0 30px #00f3ff,
+    0 0 45px rgba(0, 243, 255, 0.5);
   line-height: 1;
   display: block;
   position: relative;
@@ -117,25 +116,41 @@ header {
 }
 
 .neon-status span {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   color: #00f3ff;
   font-size: 1.4rem;
-  text-shadow: 0 0 10px rgba(0,243,255,0.5);
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
 }
 
 @keyframes hologramFloat {
-  0%, 100% { transform: translateY(0) rotateX(0deg); }
-  50% { transform: translateY(-10px) rotateX(5deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(5deg);
+  }
 }
 
 @keyframes textFlow {
-  to { background-position: 200% 0; }
+  to {
+    background-position: 200% 0;
+  }
 }
 
 @keyframes signalPulse {
-  0% { opacity: 0.3; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.2); }
-  100% { opacity: 0.3; transform: scale(0.8); }
+  0% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
 }
 
 /* 全息投影光线效果 */
@@ -150,8 +165,8 @@ header {
     45deg,
     transparent 0px,
     transparent 2px,
-    rgba(0,243,255,0.1) 3px,
-    rgba(0,243,255,0.1) 5px
+    rgba(0, 243, 255, 0.1) 3px,
+    rgba(0, 243, 255, 0.1) 5px
   );
   z-index: 1;
   mix-blend-mode: screen;
@@ -159,8 +174,12 @@ header {
 }
 
 @keyframes scanLines {
-  from { transform: translateY(-10px); }
-  to { transform: translateY(0); }
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 #banner-container {
@@ -565,10 +584,16 @@ footer {
 #footer-content {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 footer section {
   width: 200px;
+}
+
+footer section:nth-child(2) {
+  width: 400px;
+  margin: 0 20px;
 }
 
 #footer-info-container {
@@ -596,16 +621,26 @@ footer section {
   margin-bottom: 15px;
 }
 
+.google-map {
+  width: 400px;
+  height: 225px;
+}
+
+.google-map iframe {
+  width: 400px;
+  height: 225px;
+}
+
 #phone-email-container {
-  width: 180px; 
-  height: 180px; 
-  display: flex; 
-  justify-content: center; 
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: #fff;
   border-radius: 5px;
-  
+
   display: none;
   margin: auto;
   margin-bottom: 15px;
@@ -673,48 +708,41 @@ footer section {
 
 @keyframes glow {
   0% {
-    box-shadow: 
-      0 0 10px hsl(0, 100%, 50%, 0.8),
-      0 0 20px hsl(0, 100%, 50%, 0.5);
+    box-shadow: 0 0 10px hsl(0, 100%, 50%, 0.8), 0 0 20px hsl(0, 100%, 50%, 0.5);
   }
   33% {
-    box-shadow: 
-      0 0 10px hsl(120, 100%, 50%, 0.8),
+    box-shadow: 0 0 10px hsl(120, 100%, 50%, 0.8),
       0 0 20px hsl(120, 100%, 50%, 0.5);
   }
   66% {
-    box-shadow: 
-      0 0 10px hsl(240, 100%, 50%, 0.8),
+    box-shadow: 0 0 10px hsl(240, 100%, 50%, 0.8),
       0 0 20px hsl(240, 100%, 50%, 0.5);
   }
   100% {
-    box-shadow: 
-      0 0 10px hsl(0, 100%, 50%, 0.8),
-      0 0 20px hsl(0, 100%, 50%, 0.5);
+    box-shadow: 0 0 10px hsl(0, 100%, 50%, 0.8), 0 0 20px hsl(0, 100%, 50%, 0.5);
   }
 }
 
-
 .offcanvas-title {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
-  background: linear-gradient(90deg, 
-      #00ffff 0%, 
-      #329dff 25%, 
-      #7a6fff 50%, 
-      #ff46d7 75%, 
-      #ff6767 100%);
+  background: linear-gradient(
+    90deg,
+    #00ffff 0%,
+    #329dff 25%,
+    #7a6fff 50%,
+    #ff46d7 75%,
+    #ff6767 100%
+  );
   background-size: 200% auto;
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-  text-shadow: 0 0 15px rgba(0, 255, 255, 0.3),
-               0 0 30px rgba(50, 157, 255, 0.3),
-               0 0 45px rgba(122, 111, 255, 0.3);
-  animation: 
-      gradientFlow 3s linear infinite,
-      pulseGlow 1.5s ease-in-out infinite alternate;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.3), 0 0 30px rgba(50, 157, 255, 0.3),
+    0 0 45px rgba(122, 111, 255, 0.3);
+  animation: gradientFlow 3s linear infinite,
+    pulseGlow 1.5s ease-in-out infinite alternate;
   position: relative;
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -723,28 +751,30 @@ footer section {
 }
 
 @keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
 }
 
 @keyframes pulseGlow {
   0% {
-      text-shadow: 0 0 10px rgba(0, 255, 255, 0.3),
-                   0 0 20px rgba(50, 157, 255, 0.3),
-                   0 0 30px rgba(122, 111, 255, 0.3);
-      transform: scale(1);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3),
+      0 0 20px rgba(50, 157, 255, 0.3), 0 0 30px rgba(122, 111, 255, 0.3);
+    transform: scale(1);
   }
   100% {
-      text-shadow: 0 0 20px rgba(0, 255, 255, 0.6),
-                   0 0 40px rgba(50, 157, 255, 0.6),
-                   0 0 60px rgba(122, 111, 255, 0.6);
-      transform: scale(1.02);
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.6),
+      0 0 40px rgba(50, 157, 255, 0.6), 0 0 60px rgba(122, 111, 255, 0.6);
+    transform: scale(1.02);
   }
 }
 
 #galary-section .galary-img {
   border: 1px solid #c4c4c4;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   padding: 4px;
   background: #fff;
   width: 100%;
