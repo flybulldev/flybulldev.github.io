@@ -185,4 +185,24 @@
     scale: 0.5;
     right : 0;
   }
+
+  .google-map {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  footer section:nth-child(2) {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  .google-map {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+  }
 }
