@@ -5,7 +5,7 @@ Vue.createApp({
         "Cover_a.png",
         "Cover_b.png",
         "Cover_c_10.png",
-        "Cover_c_16.jpg",
+        "Cover_c_16.png",
         "Cover_c_20.png",
         "Cover_c_33.png",
         "Cover_c_36.png",
