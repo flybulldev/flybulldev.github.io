@@ -32,6 +32,10 @@ window.onload = () => {
   progressBarAnimate();
   setupFooterContacts();
 
+  const copyRightYear = document.getElementById('copyright-year');
+  const currentYear = new Date().getFullYear();
+  copyRightYear.textContent = currentYear;
+
   setTimeout(() => {
     const toastBootstrap =
       bootstrap.Toast.getOrCreateInstance(toastLiveExample);
