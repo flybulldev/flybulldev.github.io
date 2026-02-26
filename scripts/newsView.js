@@ -57,7 +57,7 @@ Vue.createApp({
       if (news) {
         news = JSON.parse(news);
       } else {
-        const url = `https://news.flybull.net/news.php?id=${this.id}`;
+        const url = `https://site.flybull.net/news?id=${this.id}`;
         const response = await fetch(url);
         news = await response.json();
         
@@ -67,7 +67,7 @@ Vue.createApp({
       this.currentNews = news;
     } else {
       try {
-        const url = "https://news.flybull.net/news.php";
+        const url = "https://site.flybull.net/news";
         const response = await fetch(url);
         const newsList = await response.json();
         this.newsList = newsList;

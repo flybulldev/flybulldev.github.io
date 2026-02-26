@@ -218,8 +218,8 @@
       // --- Configuration ---
       const galleryContainer = document.getElementById('gallery-container');
       const loader = document.getElementById('loader');
-      const apiEndpoint = 'https://news.flybull.net/exampass.php';
-      const imageBasePath = 'https://news.flybull.net/exampass/';
+      const apiEndpoint = 'https://site.flybull.net/exampass';
+      const imageBasePath = 'https://site.flybull.net/images/';
       const batchSize = 9; // Number of images to load at a time
 
       // --- State Variables ---
@@ -349,7 +349,7 @@
             throw new Error(`HTTP error! status: ${response.status}`);
           }
           const data = await response.json();
-          allImageData = data.reverse(); // Newest first
+          allImageData = data; // Newest first
           
           setupColumns(); // Create columns based on initial screen size
           loadMoreImages(); // Load the first batch
