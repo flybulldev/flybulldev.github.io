@@ -22,15 +22,35 @@
 
   #banner {
     margin-top: 90px;
-    height: 100px;
+    min-height: auto;
   }
 
-  #banner-container {
-    display: none;
+  #hero-content {
+    min-height: auto;
+    padding: 40px 0;
+    justify-content: center;
   }
 
-  #banner-text-mobile {
-    display: block;
+  #hero-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .btn-hero {
+    padding: 10px 24px;
+    font-size: 0.9rem;
   }
 
   #platforms-img {
@@ -45,47 +65,170 @@
     margin-top: 25px;
   }
 
-  #classroom {
-    height: fit-content;
-    background: none;
-    display: block;
+  #service-section .service-container {
     padding: 0;
-    text-align: center;
-    background-color: rgb(245, 245, 245);
-    padding: 20px;
-    border-radius: 10px;
+    border-radius: 0;
+  }
+
+  #classroom {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 0;
+  }
+
+  .course-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .course-col {
+    gap: 10px;
+  }
+
+  .course-list:first-of-type .course-col:nth-child(2) {
+    display: none;
+  }
+
+  #course-more-btn {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .course-images {
+    max-width: 380px;
+    width: 100%;
+    justify-self: center;
+    order: -1;
   }
 
   .course-titles {
-    font-size: 1.25em;
+    font-size: 0.92rem;
+    padding: 9px 10px;
   }
 
-  .left-and-right {
-    display: block;
+  .book-gallery {
+    gap: 0;
   }
 
-  #book-cover-nav-container {
-    display: none;
-  }
-
-  #book-cover-container {
-    width: unset;
-    display: block;
-    max-width: 350px;
-    text-align: center;
-    margin: auto;
-  }
-
-  #book-covers {
-    width: unset;
+  .book-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
   }
 
   #exam {
+    display: block;
+  }
+
+  .question-nums {
+    display: none !important;
+  }
+
+  .question-panel {
+    display: block;
+    width: 100%;
+    padding: 0 4px;
+  }
+
+  #exam-question-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .question-option {
+    margin: 0 0 10px 0;
+    font-size: 0.92rem;
+    padding: 0;
+  }
+
+  .question-option .form-check-input {
     display: none;
   }
 
-  #vocabulary {
-    display: none;
+  .question-option .form-check-label {
+    display: block;
+    padding: 10px 14px;
+    border: 1.5px solid #e0d6c8;
+    border-radius: 8px;
+    background: #fffdf8;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    line-height: 1.4;
+  }
+
+  .question-option .form-check-label:hover {
+    border-color: #d4a017;
+    background: #fff9ef;
+  }
+
+  .question-option .form-check-label.text-success {
+    border-color: #28a745;
+    background: #eafbee;
+  }
+
+  .question-option .form-check-label.text-danger {
+    border-color: #dc3545;
+    background: #fef0f0;
+  }
+
+  .question-btns {
+    display: none !important;
+  }
+
+  .question-nav {
+    max-width: 100%;
+  }
+
+  .mobile-only-btn {
+    display: inline-block;
+  }
+
+  #offcanvasScrollingLabel .ai-icon {
+    font-size: 0.9rem;
+  }
+
+  #exam-explanation-text {
+    font-size: 0.9rem;
+  }
+
+  #offcanvasScrollingLabel {
+    font-size: 1rem;
+  }
+
+  .vocab-option {
+    width: 100%;
+    max-width: 400px;
+    height: 60px;
+    padding-left: 20px;
+    font-size: 1rem;
+  }
+
+  .vocab-study-card {
+    padding: 30px 20px;
+  }
+
+  .vocab-study-word {
+    font-size: 2rem;
+  }
+
+  .vocab-study-cn {
+    font-size: 1.4rem;
+  }
+
+  .vocab-input {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1.5rem;
+  }
+
+  .input-hin-container {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .vocab-cn {
+    font-size: 1.5rem;
   }
 
   #prog-bar {
@@ -93,20 +236,17 @@
   }
 
   .service-icon-container {
-    justify-content: space-around;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .service-icon {
-    width: 100px;
-    height: 115px;
+    width: 100%;
+    height: auto;
   }
 
   .service-name {
-    font-size: 0.5em;
-  }
-
-  #sitemap {
-    display: none;
+    font-size: 0.88rem;
   }
 
   .mobile-only {
@@ -120,19 +260,28 @@
   #neon-label {
     right: 10%;
   }
-}
 
-@media (max-width: 1400px) {
-  #classroom {
-    padding-left: 15px;
+  #news-banner {
+    min-height: 190px;
   }
-}
 
-@media (max-width: 1200px) {
-  #classroom {
-    padding-left: 10px;
-    font-size: 0.8em;
+  .news-banner-title {
+    font-size: 1.7rem;
   }
+
+  .news-banner-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .news-view-shell {
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .news-row {
+    padding: 12px 12px;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -164,6 +313,16 @@
     margin-top: 0;
   }
 
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
   #liveToast-container {
     display: none;
   }
@@ -184,6 +343,57 @@
   #neon-label {
     scale: 0.5;
     right : 0;
+  }
+
+  .section-cta-btn {
+    padding: 7px 16px;
+    font-size: 0.92rem;
+  }
+
+  .service-icon-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .course-list {
+    grid-template-columns: 1fr;
+  }
+
+  .course-images {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 100%;
+    gap: 8px;
+  }
+
+  .service-icon {
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(80, 56, 0, 0.1);
+  }
+
+  .service-icon-img {
+    aspect-ratio: 1 / 1;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .service-name {
+    font-size: 0.72rem;
+    line-height: 1.25;
+    padding: 6px 4px 8px;
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .news-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .news-row-title {
+    white-space: normal;
   }
 
   .google-map {

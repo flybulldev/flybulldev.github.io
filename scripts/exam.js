@@ -147,88 +147,265 @@ const translations = [
   },
 ];
 
-Vue.createApp({
-  data() {
-    return {
-      studyMode: true,
-      questions,      // assuming these are defined elsewhere or imported
-      translations,   // assuming these are defined elsewhere or imported
-      imageLocation: null,
-      currentIndex: 0,
-      selectedOptions: {},
-      flaggedQuestions: [],
-      translate: false,
-      // New properties for typewriter effect:
-      displayedExplanation: "",
-      explanationTaskId: 0, // helps cancel previous typing tasks if needed
-    };
-  },
-  methods: {
-    goToQuestion(index) {
-      this.currentIndex = index;
-    },
-    changeMode() {
-      this.studyMode = !this.studyMode;
-    },
-    selectOption(index) {
-      this.selectedOptions[this.currentIndex] = index;
-    },
-    back() {
-      if (this.currentIndex > 0) this.currentIndex--;
-    },
-    next() {
-      if (this.currentIndex < this.questions.length - 1) this.currentIndex++;
-      else if (!this.studyMode) {
-        this.currentIndex = 0;
-        this.studyMode = true;
-      }
-    },
-    getAnswerIndicator(index) {
-      if (!this.studyMode) return "";
-      if (this.selectedOptions[this.currentIndex] === undefined) return "";
-      return this.questions[this.currentIndex].answer === index
-        ? "text-success"
-        : "text-danger";
-    },
-    getQuestionNumIndicator(index) {
-      if (!this.studyMode) return "";
-      if (this.selectedOptions[index] === undefined) return "";
-      return this.questions[index].answer === this.selectedOptions[index]
-        ? "green-bg"
-        : "red-bg";
-    },
-    showTranslations() {
-      this.translate = !this.translate;
-    },
-    flag() {
-      if (this.flaggedQuestions.includes(this.currentIndex)) {
-        this.flaggedQuestions = this.flaggedQuestions.filter(
-          (q) => q !== this.currentIndex
-        );
-      } else {
-        this.flaggedQuestions.push(this.currentIndex);
-      }
-    },
-    // The async method that builds the explanation text one character at a time.
-    async typeExplanation() {
-      // Increment the task ID to cancel any previous run
-      const taskId = ++this.explanationTaskId;
-      this.displayedExplanation = "";
-      const explanation = this.questions[this.currentIndex].explanation;
-      // Loop over each character and append with a delay
-      for (const char of explanation) {
-        // If a new typing task has started, stop this one.
-        if (this.explanationTaskId !== taskId) break;
-        this.displayedExplanation += char;
-        await new Promise((resolve) => setTimeout(resolve, 50)); // delay in ms (adjust as desired)
-      }
-    },
-  },
-  // A watcher to trigger the typewriter effect whenever currentIndex changes.
-  watch: {
-    currentIndex() {
-      this.typeExplanation();
-    },
-  },
-}).mount("#exam");
+(function () {
+  var studyMode = true;
+  var currentIndex = 0;
+  var selectedOptions = {};
+  var flaggedQuestions = [];
+  var translate = false;
+  var explanationTaskId = 0;
+
+  // DOM refs
+  var questionNumsEl = document.getElementById("exam-question-nums");
+  var questionTextEl = document.getElementById("exam-question-text");
+  var questionImageDiv = document.getElementById("exam-question-image");
+  var questionImgEl = document.getElementById("exam-question-img");
+  var optionsEl = document.getElementById("exam-options");
+  var studyRadio = document.getElementById("study");
+  var testRadio = document.getElementById("test");
+  var modeStudyHint = document.getElementById("exam-mode-study-hint");
+  var modeTestHint = document.getElementById("exam-mode-test-hint");
+  var translateBtn = document.getElementById("exam-translate-btn");
+  var flagBtn = document.getElementById("exam-flag-btn");
+  var backBtn = document.getElementById("exam-back-btn");
+  var nextBtn = document.getElementById("exam-next-btn");
+  var aiBtn = document.getElementById("exam-ai-btn");
+  var explanationTextEl = document.getElementById("exam-explanation-text");
+
+  // Build question number boxes
+  function renderQuestionNums() {
+    questionNumsEl.replaceChildren();
+    for (var i = 0; i < questions.length; i++) {
+      (function (index) {
+        var indicator = getQuestionNumIndicator(index);
+
+        var box = document.createElement("div");
+        box.className =
+          "question-num-box" +
+          (index === currentIndex ? " question-current-box" : "") +
+          (indicator ? " question-num-answered" : "");
+        box.addEventListener("click", function () {
+          goToQuestion(index);
+        });
+
+        var inner = document.createElement("div");
+        inner.className = "question-num-inner " + indicator;
+
+        if (flaggedQuestions.indexOf(index) !== -1) {
+          var icon = document.createElement("i");
+          icon.className = "bi bi-bookmark-fill text-warning";
+          inner.appendChild(icon);
+        } else {
+          inner.textContent = index + 1;
+        }
+
+        box.appendChild(inner);
+        questionNumsEl.appendChild(box);
+      })(i);
+    }
+  }
+
+  // Build options
+  function renderQuestion() {
+    var q = questions[currentIndex];
+    var t = translations[currentIndex];
+
+    questionTextEl.textContent =
+      currentIndex + 1 + ". " + (translate ? t.question : q.question);
+
+    // Image
+    if (q.image) {
+      questionImageDiv.style.display = "";
+      questionImgEl.src = "./assets/" + q.image + ".png";
+    } else {
+      questionImageDiv.style.display = "none";
+    }
+
+    // Options
+    optionsEl.replaceChildren();
+    for (var i = 0; i < q.options.length; i++) {
+      (function (optIndex) {
+        var wrapper = document.createElement("div");
+        wrapper.className = "question-option form-check fs-5";
+
+        var input = document.createElement("input");
+        input.className = "form-check-input";
+        input.type = "radio";
+        input.name = "flexRadioDefault";
+        input.id = "flexRadio" + optIndex;
+        var clicked = selectedOptions[currentIndex] || [];
+        input.checked =
+          clicked.length > 0 && clicked[clicked.length - 1] === optIndex;
+        input.addEventListener("click", function () {
+          selectOption(optIndex);
+        });
+
+        var label = document.createElement("label");
+        label.className = "form-check-label";
+        label.setAttribute("for", "flexRadio" + optIndex);
+        var letter = String.fromCharCode(65 + optIndex);
+        label.textContent = letter + ". " + (translate
+          ? t.options[optIndex]
+          : q.options[optIndex]);
+
+        // Color each previously clicked option in study mode
+        if (studyMode && clicked.indexOf(optIndex) !== -1) {
+          label.className +=
+            q.answer === optIndex ? " text-success" : " text-danger";
+        }
+
+        wrapper.appendChild(input);
+        wrapper.appendChild(label);
+        optionsEl.appendChild(wrapper);
+      })(i);
+    }
+  }
+
+  function updateModeUI() {
+    studyRadio.checked = studyMode;
+    testRadio.checked = !studyMode;
+    modeStudyHint.style.display = studyMode ? "" : "none";
+    modeTestHint.style.display = studyMode ? "none" : "";
+  }
+
+  function updateNavButtons() {
+    backBtn.className =
+      "btn " +
+      (currentIndex === 0 ? "btn-outline-secondary" : "btn-outline-warning");
+    backBtn.disabled = currentIndex === 0;
+
+    var isLast = currentIndex === questions.length - 1;
+    if (!studyMode && isLast) {
+      nextBtn.textContent = "完成";
+      nextBtn.className = "btn btn-outline-warning";
+      nextBtn.disabled = false;
+    } else {
+      nextBtn.textContent = "下一题";
+      nextBtn.className =
+        "btn " +
+        (studyMode && isLast
+          ? "btn-outline-secondary"
+          : "btn-outline-warning");
+      nextBtn.disabled = studyMode && isLast;
+    }
+  }
+
+  function updateTranslateBtn() {
+    translateBtn.className =
+      "btn margin-row " +
+      (translate ? "btn-primary" : "btn-outline-primary");
+  }
+
+  function updateFlagBtn() {
+    flagBtn.className =
+      "btn margin-row " +
+      (flaggedQuestions.indexOf(currentIndex) !== -1
+        ? "btn-danger"
+        : "btn-outline-danger");
+  }
+
+  function render() {
+    renderQuestionNums();
+    renderQuestion();
+    updateModeUI();
+    updateNavButtons();
+    updateTranslateBtn();
+    updateFlagBtn();
+  }
+
+  function goToQuestion(index) {
+    currentIndex = index;
+    render();
+    typeExplanation();
+  }
+
+  function changeMode() {
+    studyMode = !studyMode;
+    render();
+  }
+
+  function selectOption(index) {
+    if (!selectedOptions[currentIndex]) {
+      selectedOptions[currentIndex] = [];
+    }
+    if (selectedOptions[currentIndex].indexOf(index) !== -1) {
+      return;
+    }
+    selectedOptions[currentIndex].push(index);
+    render();
+  }
+
+  function back() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      render();
+      typeExplanation();
+    }
+  }
+
+  function next() {
+    if (currentIndex < questions.length - 1) {
+      currentIndex++;
+      render();
+      typeExplanation();
+    } else if (!studyMode) {
+      currentIndex = 0;
+      studyMode = true;
+      render();
+      typeExplanation();
+    }
+  }
+
+  function getQuestionNumIndicator(index) {
+    var clicked = selectedOptions[index];
+    if (!clicked || clicked.length === 0) return "";
+    if (!studyMode) return "blue-bg";
+    return questions[index].answer === clicked[clicked.length - 1]
+      ? "green-bg"
+      : "red-bg";
+  }
+
+  function showTranslations() {
+    translate = !translate;
+    renderQuestion();
+    updateTranslateBtn();
+  }
+
+  function flag() {
+    var pos = flaggedQuestions.indexOf(currentIndex);
+    if (pos !== -1) {
+      flaggedQuestions.splice(pos, 1);
+    } else {
+      flaggedQuestions.push(currentIndex);
+    }
+    render();
+  }
+
+  async function typeExplanation() {
+    var taskId = ++explanationTaskId;
+    explanationTextEl.textContent = "";
+    var explanation = questions[currentIndex].explanation;
+    for (var i = 0; i < explanation.length; i++) {
+      if (explanationTaskId !== taskId) break;
+      explanationTextEl.textContent += explanation[i];
+      await new Promise(function (resolve) {
+        setTimeout(resolve, 50);
+      });
+    }
+  }
+
+  // Event listeners
+  studyRadio.addEventListener("click", changeMode);
+  testRadio.addEventListener("click", changeMode);
+  translateBtn.addEventListener("click", showTranslations);
+  var translateBtnMobile = document.getElementById("exam-translate-btn-mobile");
+  if (translateBtnMobile) translateBtnMobile.addEventListener("click", showTranslations);
+  flagBtn.addEventListener("click", flag);
+  backBtn.addEventListener("click", back);
+  nextBtn.addEventListener("click", next);
+  aiBtn.addEventListener("click", typeExplanation);
+
+  // Initial render
+  render();
+})();
 

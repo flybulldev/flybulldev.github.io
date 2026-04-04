@@ -20,6 +20,11 @@ function showMoreFAQ() {
   moreFAQ.style.display = 'block';
 }
 
+function showMoreCourses() {
+  document.getElementById('course-more-btn').style.display = 'none';
+  document.querySelector('.course-list .course-col:nth-child(2)').style.display = 'grid';
+}
+
 window.onload = () => {
   const tooltipTriggerList = document.querySelectorAll(
     '[data-bs-toggle="tooltip"]'
@@ -36,9 +41,14 @@ window.onload = () => {
   const currentYear = new Date().getFullYear();
   copyRightYear.textContent = currentYear;
 
-  setTimeout(() => {
-    const toastBootstrap =
-      bootstrap.Toast.getOrCreateInstance(toastLiveExample);
-    toastBootstrap.show();
-  }, 5000);
+  const today = new Date().toISOString().slice(0, 10);
+  const toastLastShown = localStorage.getItem("liveToastLastShown");
+  if (toastLastShown !== today) {
+    setTimeout(() => {
+      const toastBootstrap =
+        bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+      toastBootstrap.show();
+      localStorage.setItem("liveToastLastShown", today);
+    }, 5000);
+  }
 };

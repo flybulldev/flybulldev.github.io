@@ -64,40 +64,39 @@
 
   <section id="banner">
     <div id="banner-container" class="container">
-      <section id="banner-left" class="banner-sections">
-        <div id="banner-text">
-          <h2 class="display-6">飞牛培训，行业标杆！</h2>
-          <br />
-          <p style="text-align: left">
-            FLYBULL飞牛是一家为全美建筑执照考试量身定制的线上培训平台。我们提供中文教材、中文讲课以及双语刷题，帮助学员更好地掌握考试所需的专业知识。课程灵活方便，支持电脑和手机界面，随时随地都能学习，符合全美各州的考试惯例。无论你是从零开始学习技术，还是需要提高英语词汇，飞牛都能为你提供系统的指导，助你轻松应对建筑执照考试，迈向职业成功！
+      <div id="hero-content">
+        <div id="hero-text">
+          <span class="hero-badge">全美建筑执照考试培训平台</span>
+          <h1 class="hero-title">飞牛培训，<br /><span class="hero-highlight">行业标杆！</span></h1>
+          <p class="hero-desc">
+            中文教材 · 中文讲课 · 双语刷题<br />
+            支持电脑和手机，随时随地轻松备考
           </p>
-          <br />
+          <div class="hero-actions">
+            <a href="#downloads-anchor" class="btn-hero btn-hero-primary">
+              <i class="bi bi-download me-2"></i>下载APP
+            </a>
+            <a href="#course-anchor" class="btn-hero btn-hero-secondary">浏览课程</a>
+          </div>
         </div>
-      </section>
+      </div>
     </div>
   </section>
 
-  <div id="banner-text-mobile">
-    <h2 class="display-6">飞牛培训，行业标杆！</h2>
-    <br />
-    <p>
-      FLYBULL飞牛是一家为全美建筑执照考试量身定制的线上培训平台。我们提供中文教材、中文讲课以及双语刷题，帮助学员更好地掌握考试所需的专业知识。课程灵活方便，支持电脑和手机界面，随时随地都能学习，符合全美各州的考试惯例。无论你是从零开始学习技术，还是需要提高英语词汇，飞牛都能为你提供系统的指导，助你轻松应对建筑执照考试，迈向职业成功！
-    </p>
-    <br />
-  </div>
-
   <section class="margin-block" style="text-align: center">
-    <div id="app-description" class="fs-4 text-center fw-light text-secondary">
-      多功能一体式在线学习平台。主讲全美各州各类建筑执照考试!
-    </div>
+    <a id="downloads-anchor"></a>
     <div class="platforms-wrapper">
       <img id="platforms-img" src="./assets/platforms.png" alt="platforms" />
       <div id="neon-label" onclick="location.href='#exam-anchor'">
-        <div class="hologram-effect">
-          <span class="ai-title">AI 助学</span>
-          <div class="neon-status">
-            <div class="signal-dot"></div>
-            <span>已开启</span>
+        <div class="ai-card">
+          <div class="ai-card-glow"></div>
+          <div class="ai-card-content">
+            <i class="bi bi-stars ai-icon"></i>
+            <span class="ai-label">AI 助学</span>
+          </div>
+          <div class="ai-status">
+            <span class="ai-status-dot"></span>
+            <span class="ai-status-text">已开启</span>
           </div>
         </div>
       </div>
@@ -105,8 +104,8 @@
   </section>
 
   <section id="downloads-section" class="container margin-block">
-    <a id="downloads-anchor"></a>
     <h2 class="display-6 text-center fw-light">下载APP</h2>
+    <div class="fs-4 text-center fw-light text-secondary">多端同步学习，随时随地轻松备考</div>
     <!-- <div class="fs-4 text-center fw-light text-secondary">
         多功能一体式在线学习平台。主讲全美各州各类建筑执照考试!
       </div> -->
@@ -170,43 +169,58 @@
 
   <section id="news-section" class="container margin-section news-elements">
     <h2 class="display-6 text-center fw-light">最新动态</h2>
-    <div id="news" class="margin-row">
-      <div class="list-group">
-        <a class="list-group-item list-group-item-action" v-for="n in news" :href="`./news.html?id=${n.id}`"><span
-            class="news-title d-inline-block text-truncate">{{ n.title }}</span><span
-            class="float-end news-date">{{n.date}}</span></a>
-        <a class="list-group-item list-group-item-action" href="./news.html"><span
-            class="news-title d-inline-block text-truncate">查看更多...</span></a>
-      </div>
+    <div class="fs-4 text-center fw-light text-secondary">飞牛课程更新、考试资讯与平台公告</div>
+    <div id="news" class="news-list"></div>
+    <div class="section-cta">
+      <a href="./news.html" class="section-cta-btn">
+        查看所有
+        <i class="bi bi-arrow-right"></i>
+      </a>
     </div>
   </section>
 
   <section id="galary-section" class="container margin-section">
     <h2 class="display-6 text-center fw-light">学业展廊</h2>
-    <div class="row row-cols-3 g-3" style="margin-top: 30px">
-      <div class="col">
-        <img src="./assets/exampass1.jpg" class="img-fluid rounded mb-3 galary-img" style="cursor: pointer"
-          onclick="window.open('./showcase.html', '_self')" />
-      </div>
-      <div class="col">
-        <img src="./assets/exampass2.jpg" class="img-fluid rounded mb-3 galary-img" style="cursor: pointer"
-          onclick="window.open('./showcase.html', '_self')" />
-      </div>
-      <div class="col">
-        <img src="./assets/exampass3.jpg" class="img-fluid rounded mb-3 galary-img" style="cursor: pointer"
-          onclick="window.open('./showcase.html', '_self')" />
-      </div>
+    <div class="fs-4 text-center fw-light text-secondary">每张成绩单，都是一段坚持的故事</div>
+
+    <div class="galary-grid">
+      <a href="./showcase.html" class="galary-card galary-card--featured" aria-label="查看学业展廊">
+        <div class="galary-card-inner">
+          <img src="./assets/exampass1.jpg" alt="考试通过证书" class="galary-card-img" />
+          <div class="galary-card-overlay">
+            <span class="galary-card-icon">&#10024;</span>
+          </div>
+        </div>
+      </a>
+      <a href="./showcase.html" class="galary-card" aria-label="查看学业展廊">
+        <div class="galary-card-inner">
+          <img src="./assets/exampass2.jpg" alt="考试通过证书" class="galary-card-img" />
+          <div class="galary-card-overlay">
+            <span class="galary-card-icon">&#10024;</span>
+          </div>
+        </div>
+      </a>
+      <a href="./showcase.html" class="galary-card" aria-label="查看学业展廊">
+        <div class="galary-card-inner">
+          <img src="./assets/exampass3.jpg" alt="考试通过证书" class="galary-card-img" />
+          <div class="galary-card-overlay">
+            <span class="galary-card-icon">&#10024;</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="section-cta">
+      <a href="./showcase.html" class="section-cta-btn">
+        查看所有
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
     </div>
   </section>
 
-  <div class="text-center">
-    <button type="button" class="btn btn-light" onclick="window.open('./showcase.html', '_self')">
-      查看所有
-    </button>
-  </div>
-
   <section id="faq-section" class="container margin-section">
     <h2 class="display-6 text-center fw-light">常见问题</h2>
+    <div class="fs-4 text-center fw-light text-secondary">快速了解执照申请、考试与学习流程</div>
     <div class="accordion accordion-flush" id="accordionFlushExample">
       <div class="accordion-item">
         <h2 class="accordion-header">
@@ -289,9 +303,10 @@
           </div>
         </div>
       </div>
-      <div id="faq-more-btn" style="text-align: center">
-        <button type="button" class="btn btn-link" onclick="showMoreFAQ()">
+      <div id="faq-more-btn" class="section-cta">
+        <button type="button" class="btn section-cta-btn" onclick="showMoreFAQ()">
           显示更多
+          <i class="bi bi-arrow-down"></i>
         </button>
       </div>
       <section id="faq-hidden">
@@ -490,33 +505,40 @@
   <section id="course-section" class="margin-section container">
     <h1 class="display-6 text-center fw-light">飞牛云课堂</h1>
     <div class="fs-4 text-center fw-light text-secondary">
-      中文教学，从新手到专家！另有施工现场讲解。随时随地开始学习！
+      中文教学，从新手到专家！随时随地开始学习，下载APP即可免费试听！
     </div>
     <div id="classroom" class="margin-block">
-      <div>
-        <div class="course-titles">法律与商业（必修课）</div>
-        <div class="course-titles">A 类综合工程</div>
-        <div class="course-titles">B 类总承包商</div>
-        <div class="course-titles">C-10 电工</div>
-        <div class="course-titles">C-16 消防</div>
-        <div class="course-titles">C-20 暖通空调</div>
-        <div class="course-titles">C-36 水管工</div>
+      <div class="course-list">
+        <div class="course-col">
+          <div class="course-titles">法律与商业（必修课）</div>
+          <div class="course-titles">A 类综合工程</div>
+          <div class="course-titles">B 类总承包商</div>
+          <div class="course-titles">C-10 电工</div>
+          <div class="course-titles">C-16 消防</div>
+          <div class="course-titles">C-20 暖通空调</div>
+          <div class="course-titles">C-36 水管工</div>
+          <div class="course-titles">C-27 园林景观</div>
+        </div>
+        <div class="course-col">
+          <div class="course-titles">C-33 油漆</div>
+          <div class="course-titles">C-45 标牌</div>
+          <div class="course-titles">C-46 太阳能</div>
+          <div class="course-titles">D-52 窗面覆盖</div>
+          <div class="course-titles">C-6 橱柜和细木工</div>
+          <div class="course-titles">健康与安全加强班（选修课）</div>
+          <div class="course-titles">测量与计算（选修课）</div>
+          <div class="course-titles">更多C类和D类执照...</div>
+        </div>
       </div>
-      <div>
-        <div class="course-titles">C-6 橱柜和细木工</div>
-        <div class="course-titles">C-27 园林景观</div>
-        <div class="course-titles">C-33 油漆</div>
-        <div class="course-titles">C-45 标牌</div>
-        <div class="course-titles">C-46 太阳能</div>
-        <div class="course-titles">D-52 窗面覆盖</div>
-        <!-- <div class="course-titles">健康与安全加强班（选修课）</div> -->
-        <!-- <div class="course-titles">测量与计算（选修课）</div> -->
-        <div class="course-titles">更多C类和D类执照...</div>
+      <div id="course-more-btn" class="section-cta">
+        <button type="button" class="btn section-cta-btn" onclick="showMoreCourses()">
+          查看更多
+          <i class="bi bi-arrow-down"></i>
+        </button>
       </div>
-      <div>
-        <img draggable="false" alt="class" src="./assets/class1.png" width="230px" />
-        <br />
-        <img draggable="false" alt="class" src="./assets/class2.png" width="230px" />
+      <div class="course-images">
+        <img draggable="false" alt="class" src="./assets/class1.png" />
+        <img draggable="false" alt="class" src="./assets/class2.png" />
       </div>
     </div>
     <div class="margin-block fs-5">
@@ -529,102 +551,54 @@
     <div class="fs-4 text-center fw-light text-secondary">
       中英双语独家自编教材。专业知识，随时翻阅！
     </div>
-    <div id="book" class="left-and-right">
-      <div id="book-cover-nav-container" class="sub-container">
-        <img class="book-cover-nav-img" v-for="(bookCover, index) in bookCovers" :alt="bookCover"
-          :src="`./assets/${bookCover}`" @click="currentIndex = index" />
+    <div id="book" class="book-gallery margin-block">
+      <div class="book-grid"></div>
+
+      <div class="book-preview" style="display:none;">
+        <button type="button" class="book-preview-close">&times;</button>
+        <button type="button" class="book-preview-nav" id="book-prev-btn">&lt;</button>
+        <img draggable="false" class="book-preview-img" alt="book cover large preview" />
+        <button type="button" class="book-preview-nav" id="book-next-btn">&gt;</button>
       </div>
-      <div id="book-cover-container" class="sub-container">
-        <div id="book-covers" v-if="bookCovers !== null">
-          <img draggable="false" :src="`./assets/${bookCovers[currentIndex]}`" class="img-thumbnail" alt="book cover" />
-        </div>
-        <div class="btn-group margin-row" v-if="bookCovers !== null" role="group" aria-label="Basic outlined example">
-          <button type="button" :class="`btn ${currentIndex === 0 ? 'btn-outline-secondary' : 'btn-outline-warning'}`"
-            :disabled="currentIndex === 0" @click="previous()">
-            &lt;
-          </button>
-          <button type="button" class="btn btn-outline-secondary disabled">
-            -
-          </button>
-          <button type="button"
-            :class="`btn ${currentIndex === bookCovers.length - 1 ? 'btn-outline-secondary' : 'btn-outline-warning'}`"
-            :disabled="currentIndex === bookCovers.length - 1" @click="next()">
-            &gt;
-          </button>
-        </div>
-        <a id="exam-anchor"></a>
-      </div>
+
+      <a id="exam-anchor"></a>
     </div>
   </section>
 
   <section id="exam-section" class="container margin-section">
     <h2 class="display-6 text-center fw-light">试题学习</h2>
     <div class="fs-4 text-center fw-light text-secondary">
-      双语题库，随时切换，每个题库都有上百道题！学习模式和考试模式双重巩固记忆！
+      双语题库，随时切换！学习模式和考试模式双重巩固记忆！
     </div>
     <div id="exam" class="exam-intro margin-block">
-      <div class="exam-container">
-        <div class="question-nums">
-          <!-- (Keep your question numbers code as before) -->
-          <div :class="`question-num-box ${index === currentIndex ? 'question-current-box' : ''}`"
-            v-for="(question, index) in questions" :key="index" @click="goToQuestion(index)">
-            <div v-if="flaggedQuestions.includes(index)"
-              :class="`question-num-inner ${getQuestionNumIndicator(index)}`">
-              <i class="bi bi-bookmark-fill text-warning"></i>
-            </div>
-            <div v-else :class="`question-num-inner ${getQuestionNumIndicator(index)}`">
-              {{ index + 1 }}
-            </div>
+      <div class="exam-container"><div class="question-nums" id="exam-question-nums"></div><!--
+        --><div class="question-panel">
+          <div class="fs-5" id="exam-question-text"></div>
+          <div id="exam-question-image" style="display:none;">
+            <img draggable="false" width="75%" alt="question image" id="exam-question-img" />
           </div>
-        </div>
-
-        <div class="question-panel">
-          <div class="fs-5">
-            {{ currentIndex + 1 }}. {{ translate ?
-            translations[currentIndex].question :
-            questions[currentIndex].question }}
-          </div>
-          <div v-if="questions[currentIndex].image">
-            <img draggable="false" width="75%" alt="question image"
-              :src="`./assets/${questions[currentIndex].image}.png`" />
-          </div>
-          <div class="question-option form-check fs-5" v-for="(option, index) in questions[currentIndex].options"
-            :key="index">
-            <input placeholder="_" class="form-check-input" type="radio" name="flexRadioDefault"
-              :id="`flexRadio${index}`" :checked="selectedOptions[currentIndex] === index"
-              @click="selectOption(index)" />
-            <label :class="`form-check-label ${getAnswerIndicator(index)}`" :for="`flexRadio${index}`">
-              {{ translate ? translations[currentIndex].options[index] :
-              option }}
-            </label>
-          </div>
-        </div>
-
-        <div class="question-btns text-center">
+          <div id="exam-options"></div>
+        </div><!--
+        --><div class="question-btns text-center">
           <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle Vertical button group">
-            <input type="radio" class="btn-check" name="btnradio" id="study" autocomplete="off" @click="changeMode()"
-              :checked="studyMode" />
+            <input type="radio" class="btn-check" name="btnradio" id="study" autocomplete="off" />
             <label class="btn btn-outline-warning" for="study">学习模式</label>
 
-            <input type="radio" class="btn-check" name="btnradio" id="test" autocomplete="off" @click="changeMode()"
-              :checked="!studyMode" />
+            <input type="radio" class="btn-check" name="btnradio" id="test" autocomplete="off" />
             <label class="btn btn-outline-warning" for="test">考试模式</label>
           </div>
-          <div class="margin-row" v-if="studyMode">
+          <div class="margin-row" id="exam-mode-study-hint">
             <div class="text-success">绿色 = 正确答案</div>
             <div class="text-danger">红色 = 错误答案</div>
           </div>
-          <div class="margin-row" v-else>
+          <div class="margin-row" id="exam-mode-test-hint" style="display:none;">
             <div class="text-primary">答题结束后显示<br />正确答案</div>
           </div>
-          <button type="button" :class="`btn margin-row ${translate ? 'btn-primary' : 'btn-outline-primary'}`"
-            @click="showTranslations()">
+          <button type="button" class="btn margin-row btn-outline-primary" id="exam-translate-btn">
             翻译
           </button>
           <br />
-          <button type="button"
-            :class="`btn margin-row ${flaggedQuestions.includes(currentIndex) ? 'btn-danger' : 'btn-outline-danger'}`"
-            @click="flag()">
+          <button type="button" class="btn margin-row btn-outline-danger" id="exam-flag-btn">
             标记
           </button>
         </div>
@@ -632,18 +606,17 @@
 
       <div class="question-nav-container">
         <div class="question-nav">
-          <button type="button" :class="`btn ${currentIndex === 0 ? 'btn-outline-secondary' : 'btn-outline-warning'}`"
-            @click="back()" :disabled="currentIndex === 0">
+          <button type="button" class="btn btn-outline-warning" id="exam-back-btn">
             上一题
           </button>
-          <!-- Added @click="typeExplanation" so clicking this button will start the typewriter effect -->
+          <button type="button" class="btn btn-outline-primary mobile-only-btn" id="exam-translate-btn-mobile">
+            翻译
+          </button>
           <button type="button" class="btn btn-outline-danger ai-btn" data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" @click="typeExplanation()">
+            data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" id="exam-ai-btn">
             AI 解题
           </button>
-          <button type="button"
-            :class="`btn ${studyMode && currentIndex === questions.length - 1 ? 'btn-outline-secondary' : 'btn-outline-warning'}`"
-            :disabled="studyMode && currentIndex === questions.length - 1" @click="next()">
+          <button type="button" class="btn btn-outline-warning" id="exam-next-btn">
             下一题
           </button>
         </div>
@@ -654,18 +627,15 @@
         id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
-            飞牛智能为您解答
+            <i class="bi bi-stars ai-icon"></i> 飞牛智能为您解答
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <!-- Instead of directly binding the explanation text, we bind to displayedExplanation -->
-          <p style="white-space: pre-line">{{ displayedExplanation }}</p>
+          <p style="white-space: pre-line" id="exam-explanation-text"></p>
         </div>
       </div>
     </div>
-    <div class="mobile-only text-center">用电脑访问此网站可以试用本功能</div>
-    <img class="mobile-only" alt="Exams" src="./assets/examshot.png" width="100%" />
     <div class="exam-intro margin-block fs-5">
       <a id="vocabulary-anchor"></a>
     </div>
@@ -678,96 +648,13 @@
     </div>
     <div id="vocabulary">
       <div class="d-flex justify-content-evenly margin-block">
-        <button type="button" :class="`btn btn-lg btn-${section === 0 ? '' : 'outline-'}primary`"
-          @click="gotoSection(0)">
-          学习
-        </button>
-        <button type="button" :class="`btn btn-lg btn-${section === 1 ? '' : 'outline-'}danger`"
-          @click="gotoSection(1)">
-          发音
-        </button>
-        <button type="button" :class="`btn btn-lg btn-${section === 2 ? '' : 'outline-'}success`"
-          @click="gotoSection(2)">
-          词义
-        </button>
-        <button type="button" :class="`btn btn-lg btn-${section === 3 ? '' : 'outline-'}warning`"
-          @click="gotoSection(3)">
-          拼写
-        </button>
+        <button type="button" class="btn btn-lg btn-primary" id="vocab-sec-0">学习</button>
+        <button type="button" class="btn btn-lg btn-outline-danger" id="vocab-sec-1">发音</button>
+        <button type="button" class="btn btn-lg btn-outline-success" id="vocab-sec-2">词义</button>
+        <button type="button" class="btn btn-lg btn-outline-warning" id="vocab-sec-3">拼写</button>
       </div>
-      <section v-if="section === 0" class="vocab-sub-sections">
-        <h2 class="display-6 fw-light">{{vocabs[index].word}}</h2>
-        <button type="button" class="btn btn-light" @click="playsound">
-          <i class="bi bi-volume-up-fill"></i>
-        </button>
-        <h2 class="fw-light vocab-cn">{{vocabs[index].cn}}</h2>
-        <div class="vocab-example-container margin-block">
-          <div class="vocab-example">
-            <div v-html="vocabs[index].question" class="fs-5"></div>
-            <div v-html="vocabs[index].questionCn" class="fs-5"></div>
-            <div v-html="vocabs[index].answer" class="fs-5 margin-row"></div>
-            <div v-html="vocabs[index].answerCn" class="fs-5"></div>
-          </div>
-          <div class="question-nav-container margin-block">
-            <div class="question-nav">
-              <button type="button" :class="`btn btn-outline-${index === 0 ? 'secondary' : 'warning'}`" @click="back()"
-                :disabled="index === 0">
-                上一个
-              </button>
-              <button type="button" :class="`btn btn-outline-${index === vocabs.length - 1 ? 'secondary' : 'warning'}`"
-                @click="next()" :disabled="index === vocabs.length - 1">
-                下一个
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section v-if="section === 1 || section === 2" class="vocab-sub-sections">
-        <template v-if="!this.finish">
-          <h2 v-if="this.section === 2" class="display-6 fw-light">
-            {{vocabs[index].word}}
-          </h2>
-          <button type="button" class="btn btn-light" @click="playsound">
-            <i class="bi bi-volume-up-fill"></i>
-          </button>
-          <div class="vocab-options margin-block">
-            <div v-for="(opt, i) in options" @click="optClick(i)" class="vocab-option"
-              :style="!opt.highlight ? '' : opt.correct ? 'background-color: rgb(150, 255, 150)' : 'background-color: rgb(255, 150, 150)'">
-              {{`${i + 1}. ${section === 1 ? `${opt.text} - ${opt.cn}` :
-              opt.cn}`}}
-            </div>
-          </div>
-        </template>
-        <template v-else>
-          <button type="button" class="btn btn-primary margin-block" @click="restart()">
-            重新开始
-          </button>
-        </template>
-      </section>
-      <section v-if="section === 3" class="vocab-sub-sections">
-        <template v-if="!this.finish">
-          <button type="button" class="btn btn-light" @click="playsound">
-            <i class="bi bi-volume-up-fill"></i>
-          </button>
-          <h2 class="fw-light vocab-cn margin-row">{{vocabs[index].cn}}</h2>
-          <div class="margin-block vocab-options">
-            <input type="text"
-              :class="`form-control vocab-input ${ inputError ? 'is-invalid' : ''} ${ inputPass ? 'is-valid' : '' }`"
-              v-model="input" />
-            <div class="input-hin-container">
-              <div class="input-hint" v-if="inputError">{{inputHint}}</div>
-            </div>
-          </div>
-        </template>
-        <template v-else>
-          <button type="button" class="btn btn-primary margin-block" @click="restart()">
-            重新开始
-          </button>
-        </template>
-      </section>
+      <div id="vocab-content"></div>
     </div>
-    <div class="mobile-only text-center">用电脑访问此网站可以试用本功能</div>
-    <img class="mobile-only" alt="Exams" src="./assets/vocabshot.png" width="100%" />
     <a id="service-anchor"></a>
   </section>
 
@@ -936,6 +823,7 @@
         <div id="phone-email-container">
           <div id="footer-email"></div>
           <div id="footer-phone" style="font-size: 1.2em"></div>
+          <div>微信ID: Flybull3000</div>
         </div>
         <div class="btn-group" role="group">
           <input type="radio" class="btn-check" name="qrcode" id="wechat-radio" autocomplete="off" checked />
@@ -954,28 +842,18 @@
             style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </section>
-      <section id="sitemap" class="text-center">
-        <div class="h5 footer-title">目录</div>
-        <div class="foot-catelog">
-          <a href="#" class="link-primary">主页</a>
-        </div>
-        <div class="foot-catelog">
-          <a href="#" class="link-primary news-elements">动态</a>
-        </div>
-        <div class="foot-catelog">
-          <a href="#course-anchor" class="link-primary">课程</a>
-        </div>
-        <div class="foot-catelog">
-          <a href="#book-anchor" class="link-primary">教材</a>
-        </div>
-        <div class="foot-catelog">
-          <a href="#exam-anchor" class="link-primary">试题</a>
-        </div>
-        <div class="foot-catelog">
-          <a href="#vocabulary-anchor" class="link-primary">词汇</a>
-        </div>
-        <div class="foot-catelog">
-          <a href="#service-anchor" class="link-primary">服务</a>
+      <section id="social-media" class="text-center">
+        <div class="h5 footer-title">关注我们</div>
+        <div class="social-media-images">
+          <a href="https://www.xiaohongshu.com/user/profile/657604c10000000020035efa" target="_blank" rel="noopener noreferrer">
+            <img draggable="false" alt="Rednote" src="./assets/rednote.webp" />
+          </a>
+          <a href="https://www.tiktok.com/@flybull6262103000" target="_blank" rel="noopener noreferrer">
+            <img draggable="false" alt="TikTok" src="./assets/tiktok.webp" />
+          </a>
+          <a href="https://www.youtube.com/@%E9%A3%9E%E7%89%9B%E5%9F%B9%E8%AE%AD" target="_blank" rel="noopener noreferrer">
+            <img draggable="false" alt="YouTube" src="./assets/youtube.webp" />
+          </a>
         </div>
       </section>
     </div>
@@ -1008,7 +886,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <script src="./scripts/news.js"></script>
   <script src="./scripts/book.js"></script>
   <script src="./scripts/exam.js"></script>

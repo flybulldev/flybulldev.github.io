@@ -25,63 +25,94 @@
 
   <!-- Styles for the Image Gallery -->
   <style>
+    /* --- Showcase Back Link --- */
+    .showcase-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 18px;
+      color: rgb(212, 160, 23);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .showcase-back:hover {
+      color: #b8860b;
+    }
+
+    /* --- Masonry Gallery --- */
     #gallery-container {
-      display: flex; /* Use flexbox to arrange columns */
-      gap: 20px; /* Space between columns */
-      padding: 20px;
+      display: flex;
+      gap: 18px;
+      padding: 0 24px;
       max-width: 1200px;
-      margin: 40px auto; /* Center the gallery */
-      /* Align columns to the top */
+      margin: 36px auto 0;
       align-items: flex-start;
     }
 
     .gallery-column {
-      /* Each column is a flex container for items */
       display: flex;
       flex-direction: column;
-      gap: 20px; /* Space between items within a column */
-      /* Each column will take up equal width */
+      gap: 18px;
       flex: 1;
     }
 
     .gallery-item {
-      background-color: #f9f9f9;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden; /* Ensures the image corners are rounded */
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      width: 100%; /* Ensure item takes full width of its column */
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(100, 70, 0, 0.07);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.35s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(100, 70, 0, 0.13);
     }
 
     .gallery-item img {
-      width: 100%; /* Make image fill the item */
-      height: auto; /* Maintain aspect ratio */
+      width: 100%;
+      height: auto;
       display: block;
     }
 
     .gallery-title {
-      padding: 15px;
-      font-size: 0.9rem;
-      color: #333;
-      background-color: #fff;
-      /* This preserves line breaks from the text file */
+      padding: 14px 16px;
+      font-size: 0.88rem;
+      color: #555;
+      background: #fff;
       white-space: pre-wrap;
-      word-wrap: break-word; /* Prevents long text from overflowing */
-    }
-    
-    #loader {
-        text-align: center;
-        padding: 20px;
-        font-style: italic;
-        color: #777;
-        width: 100%;
+      word-wrap: break-word;
+      border-top: 1px solid rgba(212, 160, 23, 0.1);
     }
 
-    /* Responsive design: On mobile, the flex-direction will be changed by JS */
+    #loader {
+      text-align: center;
+      padding: 28px 0;
+      color: #bbb;
+      font-size: 0.88rem;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      #gallery-container {
+        gap: 14px;
+        padding: 0 16px;
+      }
+
+      .gallery-column {
+        gap: 14px;
+      }
+    }
+
     @media (max-width: 480px) {
       #gallery-container {
-        /* On mobile, stack columns vertically instead of side-by-side */
         flex-direction: column;
+        padding: 0 16px;
       }
     }
   </style>
@@ -114,8 +145,8 @@
           服务
         </button>
       </nav>
-      <div>
-        <!-- <button type="button" class="btn btn-light">中 / EN</button> -->
+      <div id="header-right-container">
+        <div id="mobile-header-text">飞牛建筑执照考试培训中心</div>
         <button type="button" class="btn btn-warning" onclick="location.href='./index.html#downloads-section'">
           下载
         </button>
@@ -123,18 +154,18 @@
     </div>
   </header>
 
-  <section id="news-banner"></section>
+  <section id="news-banner">
+    <div class="container news-banner-inner">
+      <p class="news-banner-kicker">FLYBULL SHOWCASE</p>
+      <h1 class="news-banner-title">成长足迹，学海星光。</h1>
+      <p class="news-banner-subtitle">每张成绩单，都是一段坚持的故事</p>
+    </div>
+  </section>
 
-  <h2 class="display-6 text-center fw-light" style="margin-top: 100px;">成长足迹，学海星光。</h2>
-
-  <div style="max-width: 1200px; margin: auto; padding-left: 20px; padding-top: 30px;">
-    <nav aria-label="breadcrumb" id="news-breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="./index.html">主页</a></li>
-        <li class="breadcrumb-item"><a href="./showcase.html">学业展廊</a></li>
-      </ol>
-    </nav>
+  <div style="max-width: 1200px; margin: 24px auto 0; padding: 0 24px;">
+    <a href="./index.html" class="showcase-back">&larr; 返回主页</a>
   </div>
+
   <!-- Container for the dynamic image gallery -->
   <div id="gallery-container"></div>
   
@@ -143,60 +174,50 @@
 
   <footer class="margin-section">
     <div id="footer-content" class="container">
-      <section class="text-center">
+      <section id="contact-us" class="text-center">
         <div class="h5 footer-title">联系我们</div>
-        <div><img draggable="false" class="footer-qrcode" id="footer-qrcode-wechat" src="./assets/wechat.jpg" 
-          alt="qrcode" width="180px" /></div>
-        <div><img draggable="false" class="footer-qrcode" id="footer-qrcode-line" src="./assets/line.jpg" 
-          alt="qrcode" width="180px" style="display: none;" /></div>
+        <div>
+          <img draggable="false" class="footer-qrcode" id="footer-qrcode-wechat" src="./assets/wechat.jpg"
+            alt="微信ID: flybull3000" width="180px" />
+        </div>
+        <div>
+          <img draggable="false" class="footer-qrcode" id="footer-qrcode-line" src="./assets/line.jpg"
+            alt="Line ID: flybull3000" width="180px" style="display: none" />
+        </div>
         <div id="phone-email-container">
           <div id="footer-email"></div>
-          <div id="footer-phone" style="font-size: 1.2em;"></div>
+          <div id="footer-phone" style="font-size: 1.2em"></div>
+          <div>微信ID: Flybull3000</div>
         </div>
         <div class="btn-group" role="group">
-          <input type="radio" class="btn-check" name="qrcode" id="wechat-radio" autocomplete="off" checked>
+          <input type="radio" class="btn-check" name="qrcode" id="wechat-radio" autocomplete="off" checked />
           <label class="btn btn-outline-success" for="wechat-radio">微信</label>
-          <input type="radio" class="btn-check" name="qrcode" id="line-radio" autocomplete="off">
+          <input type="radio" class="btn-check" name="qrcode" id="line-radio" autocomplete="off" />
           <label class="btn btn-outline-success" for="line-radio">Line</label>
-          <input type="radio" class="btn-check" name="qrcode" id="other-radio" autocomplete="off">
+          <input type="radio" class="btn-check" name="qrcode" id="other-radio" autocomplete="off" />
           <label class="btn btn-outline-success" for="other-radio">其他</label>
         </div>
       </section>
       <section class="text-center">
         <div class="h5 footer-title">地址</div>
-          <div class="google-map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d413.4520877154566!2d-117.67978597116394!3d34.002377798478975!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c333ac9185971d%3A0x4a86f00f31af5f76!2zRmx5YnVsbOmjnueJm-W7uuetkeaJp-eFp-iAg-ivleWfueiureS4reW_gw!5e0!3m2!1sen!2sus!4v1756054442600!5m2!1sen!2sus"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
+        <div class="google-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d413.4520877154566!2d-117.67978597116394!3d34.002377798478975!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c333ac9185971d%3A0x4a86f00f31af5f76!2zRmx5YnVsbOmjnueJm-W7uuetkeaJp-eFp-iAg-ivleWfueiureS4reW_gw!5e0!3m2!1sen!2sus!4v1756054442600!5m2!1sen!2sus"
+            style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </section>
-      <section id="sitemap" class="text-center">
-        <div class="h5 footer-title">目录</div>
-        <div class="foot-catelog">
-          <a href="javascript:void(0)" onclick="location.href='./index.html'" class="link-primary">主页</a>
-        </div>
-        <div class="foot-catelog">
-          <a href="javascript:void(0)" onclick="location.href='./news.html'" class="link-primary news-elements">动态</a>
-        </div>
-        <div class="foot-catelog">
-          <a href="javascript:void(0)" onclick="location.href='./index.html#course-anchor'" class="link-primary">课程</a>
-        </div>
-        <div class="foot-catelog">
-          <a href="javascript:void(0)" onclick="location.href='./index.html#book-anchor'" class="link-primary">教材</a>
-        </div>
-        <div class="foot-catelog">
-          <a href="javascript:void(0)" onclick="location.href='./index.html#exam-anchor'" class="link-primary">试题</a>
-        </div>
-        <div class="foot-catelog">
-          <a href="javascript:void(0)" onclick="location.href='./index.html#vocabulary-anchor'"
-            class="link-primary">词汇</a>
-        </div>
-        <div class="foot-catelog">
-          <a href="javascript:void(0)" onclick="location.href='./index.html#service-anchor'" class="link-primary">服务</a>
+      <section id="social-media" class="text-center">
+        <div class="h5 footer-title">关注我们</div>
+        <div class="social-media-images">
+          <a href="https://www.xiaohongshu.com/user/profile/657604c10000000020035efa" target="_blank" rel="noopener noreferrer">
+            <img draggable="false" alt="Rednote" src="./assets/rednote.webp" />
+          </a>
+          <a href="https://www.tiktok.com/@flybull6262103000" target="_blank" rel="noopener noreferrer">
+            <img draggable="false" alt="TikTok" src="./assets/tiktok.webp" />
+          </a>
+          <a href="https://www.youtube.com/@%E9%A3%9E%E7%89%9B%E5%9F%B9%E8%AE%AD" target="_blank" rel="noopener noreferrer">
+            <img draggable="false" alt="YouTube" src="./assets/youtube.webp" />
+          </a>
         </div>
       </section>
     </div>
