@@ -920,10 +920,10 @@ footer section:nth-child(2) {
 }
 
 .social-media-images {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
   gap: 12px;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .social-media-images img {
@@ -1346,6 +1346,11 @@ footer section:nth-child(2) {
 .galary-card:nth-child(3) { animation-delay: 0.4s; }
 
 @media (max-width: 767.98px) {
+  .hero-badge {
+    background: rgba(255, 187, 0, 0.08);
+    border-color: rgba(255, 187, 0, 0.25);
+  }
+
   .galary-grid {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 6px;
