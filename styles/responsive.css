@@ -197,6 +197,11 @@
     font-size: 1rem;
   }
 
+  #vocabulary .btn-lg {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
   .vocab-option {
     width: 100%;
     max-width: 400px;
