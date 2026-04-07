@@ -92,40 +92,26 @@
             <li>All associated data</li>
         </ul>
 
-        <form action="https://news.flybull.net/account/request-delete-account.php" method="POST" id="deleteForm">
-            <div class="form-group">
-                <label for="email">Email Address*</label>
-                <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    required 
-                    placeholder="Enter your email address"
-                >
-            </div>
+        <div class="form-group">
+            <label for="email">Email Address*</label>
+            <input type="email" id="email" placeholder="Enter your email address">
+        </div>
 
-            <div class="form-group">
-                <label for="password">Password*</label>
-                <input 
-                    type="password" 
-                    id="password" 
-                    name="password" 
-                    required 
-                    placeholder="Enter your password"
-                >
-            </div>
+        <div class="form-group">
+            <label for="password">Password*</label>
+            <input type="password" id="password" placeholder="Enter your password">
+        </div>
 
-            <div class="checkbox-container">
-                <input type="checkbox" id="confirm" required>
-                <label for="confirm">I understand that this action is permanent and cannot be undone</label>
-            </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="confirm">
+            <label for="confirm">I understand that this action is permanent and cannot be undone</label>
+        </div>
 
-            <button type="submit" class="button" id="deleteButton" disabled>Delete My Account</button>
-        </form>
+        <button type="button" class="button" id="deleteButton" disabled>Delete My Account</button>
 
         <p style="margin-top: 20px;">
-            If you're experiencing issues with our service, please consider 
-            <a href="/index.html">contacting our support team</a> first. 
+            If you're experiencing issues with our service, please consider
+            <a href="/index.html">contacting our support team</a> first.
             We're here to help!
         </p>
     </div>
@@ -135,15 +121,8 @@
             document.getElementById('deleteButton').disabled = !this.checked;
         });
 
-        document.getElementById('deleteForm').addEventListener('submit', function(e) {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            if (!email || !password) {
-                e.preventDefault();
-                alert('Please fill in all required fields.');
-                return;
-            }
+        document.getElementById('deleteButton').addEventListener('click', function() {
+            window.location.href = './delete-account-confirmation.html';
         });
     </script>
 </body>

@@ -1,3 +1,16 @@
+@media (max-width: 1050px) {
+  #footer-content {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  #social-media {
+    width: 100%;
+    order: 10;
+  }
+}
+
 @media (max-width: 992px) {
   body {
     padding: 0;
@@ -242,7 +255,7 @@
   }
 
   .service-icon-container {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
   }
 
@@ -340,6 +353,11 @@
 
   footer section {
     width: unset;
+  }
+
+  footer section:nth-child(2) {
+    width: unset;
+    margin: 0 auto;
   }
 
   #downloads-mobile {
