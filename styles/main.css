@@ -1288,7 +1288,7 @@ footer section:nth-child(2) {
 }
 
 #showcase-container {
-  --showcase-item-size: clamp(42px, 9.1vw, 118px);
+  --showcase-item-size: clamp(42px, 8.5vw, 112px);
   --showcase-gap-x: clamp(4px, 0.9vw, 12px);
   --showcase-gap-y: clamp(4px, 1vw, 14px);
   display: flex;
@@ -1311,6 +1311,7 @@ footer section:nth-child(2) {
 
 .showcase-item {
   position: relative;
+  box-sizing: border-box;
   width: var(--showcase-item-size);
   height: var(--showcase-item-size);
   flex: 0 0 var(--showcase-item-size);
@@ -1376,6 +1377,24 @@ footer section:nth-child(2) {
 .showcase-item:hover::after {
   opacity: 1;
   transform: translate(-50%, 0);
+}
+
+@media (min-width: 992px) {
+  .showcase-item {
+    border-width: 4px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .showcase-row .showcase-item:nth-last-child(1) {
+    display: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .showcase-row .showcase-item:nth-last-child(2) {
+    display: none;
+  }
 }
 
 /* Shared CTA button */
