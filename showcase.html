@@ -329,7 +329,7 @@
               const nextImage = imagesToDisplay.shift();
               placeImage(nextImage);
           } else if (allDataLoaded) {
-              loader.textContent = '仅显示最近6个月的记录';
+              loader.textContent = '仅显示最近1年的记录';
           }
       }
 
@@ -349,7 +349,7 @@
             isLoading = false;
             // Final check in case the queue is empty
             if (imagesToDisplay.length === 0) {
-                loader.textContent = '仅显示最近6个月的记录';
+                loader.textContent = '仅显示最近1年的记录';
             }
             return;
         }
