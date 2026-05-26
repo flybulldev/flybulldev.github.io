@@ -1056,3 +1056,55 @@ const translations = [
   // Initial render
   render();
 })();
+
+// ===== Feedback Slider =====
+(function () {
+  var track = document.querySelector('.feedback-track');
+  var cards = document.querySelectorAll('.feedback-card');
+  var prevBtn = document.querySelector('.feedback-arrow-left');
+  var nextBtn = document.querySelector('.feedback-arrow-right');
+
+  if (!track || !cards.length) return;
+
+  var currentIndex = 0;
+
+  function getVisibleCount() {
+    var w = window.innerWidth;
+    if (w <= 768) return 1;
+    if (w <= 992) return 2;
+    return 3;
+  }
+
+  function updateSlider() {
+    var visibleCount = getVisibleCount();
+    var maxIndex = Math.max(0, cards.length - visibleCount);
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+    var gap = 24;
+    var cardWidth = cards[0].offsetWidth;
+    var offset = currentIndex * (cardWidth + gap);
+    track.style.transform = 'translateX(-' + offset + 'px)';
+
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= maxIndex;
+  }
+
+  prevBtn.addEventListener('click', function () {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    }
+  });
+
+  nextBtn.addEventListener('click', function () {
+    var visibleCount = getVisibleCount();
+    var maxIndex = Math.max(0, cards.length - visibleCount);
+    if (currentIndex < maxIndex) {
+      currentIndex++;
+      updateSlider();
+    }
+  });
+
+  window.addEventListener('resize', updateSlider);
+  updateSlider();
+})();
