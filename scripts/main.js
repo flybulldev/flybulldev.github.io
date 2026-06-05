@@ -13,6 +13,62 @@ function toHome() {
   window.scrollTo(0, 0);
 }
 
+const MAC_DOWNLOAD_URLS = {
+  appleSilicon: "https://github.com/flybulldev/flybull/releases/download/v1.4.3/Flybull-1.4.3-arm64.dmg",
+  intel: "https://github.com/flybulldev/flybull/releases/download/v1.4.3/Flybull-1.4.3-universal.dmg",
+};
+let detectedMacChipType = "unknown";
+
+async function getMacChipType() {
+  if (navigator.userAgentData?.getHighEntropyValues) {
+    try {
+      const { architecture } = await navigator.userAgentData.getHighEntropyValues(["architecture"]);
+      const normalizedArchitecture = String(architecture || "").toLowerCase();
+
+      if (normalizedArchitecture === "arm" || normalizedArchitecture === "arm64") return "apple-silicon";
+      if (normalizedArchitecture === "x86" || normalizedArchitecture === "x86_64") return "intel";
+    } catch (error) {
+      // Browser privacy settings may block high entropy values.
+    }
+  }
+
+  const canvas = document.createElement("canvas");
+  const gl = canvas.getContext?.("webgl") || canvas.getContext?.("experimental-webgl");
+
+  if (gl) {
+    const ext = gl.getExtension("WEBGL_debug_renderer_info");
+
+    if (ext) {
+      const renderer = String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) || "");
+
+      if (/Apple\s+M\d/i.test(renderer) || /\bApple\b.*\bGPU\b/i.test(renderer)) return "apple-silicon";
+      if (/\bIntel\b/i.test(renderer)) return "intel";
+    }
+  }
+
+  return "unknown";
+}
+
+function getMacDownloadUrl(chipType) {
+  return chipType === "apple-silicon" ? MAC_DOWNLOAD_URLS.appleSilicon : MAC_DOWNLOAD_URLS.intel;
+}
+
+function setupMacDownloadButton() {
+  const macDownloadButton = document.getElementById("mac-download-button");
+
+  if (!macDownloadButton) return;
+
+  getMacChipType().then((chipType) => {
+    detectedMacChipType = chipType;
+  }).catch(() => {
+    detectedMacChipType = "unknown";
+  });
+
+  macDownloadButton.addEventListener("click", () => {
+    window.open(getMacDownloadUrl(detectedMacChipType), "_blank");
+  });
+}
+
 function showMoreFAQ() {
   const moreFAQbtn = document.getElementById('faq-more-btn');
   moreFAQbtn.style.display = 'none';
@@ -36,6 +92,7 @@ window.onload = () => {
 
   progressBarAnimate();
   setupFooterContacts();
+  setupMacDownloadButton();
 
   const copyRightYear = document.getElementById('copyright-year');
   const currentYear = new Date().getFullYear();
